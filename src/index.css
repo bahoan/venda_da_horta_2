@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    height: 100%;
+  }
+
+  body {
+    @apply text-gray-800 min-h-screen flex flex-col;
+  }
+
+  #root {
+    @apply flex-1 flex flex-col;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply bg-secondary hover:bg-secondary-light text-white font-semibold py-4 px-8 rounded-full 
+    transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg uppercase tracking-wide;
+  }
+}
+
+/* Ajustes específicos */
+.benefit-check {
+  @apply flex-shrink-0 w-6 h-6 rounded-full bg-emerald-100 flex items-center justify-center;
+}
+
+.benefit-text {
+  @apply text-base md:text-lg text-gray-700 leading-relaxed;
+}
+
+/* Scrollbar personalizada */
+.benefits-scroll,
+.features-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(7, 170, 29, 0.3) transparent;
+}
+
+.benefits-scroll::-webkit-scrollbar,
+.features-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.benefits-scroll::-webkit-scrollbar-track,
+.features-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.benefits-scroll::-webkit-scrollbar-thumb,
+.features-scroll::-webkit-scrollbar-thumb {
+  background-color: rgba(7, 170, 29, 0.3);
+  border-radius: 3px;
+}

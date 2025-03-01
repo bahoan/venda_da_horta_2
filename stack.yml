@@ -1,0 +1,58 @@
+version: "3.7"
+
+services:
+  vendas-dahorta:
+    image: docker.io/fmguardia/vendas-dahorta:v1.0
+    networks:
+      - network_public
+    environment:
+      - NODE_ENV=production
+    deploy:
+      mode: replicated
+      replicas: 1
+      update_config:
+        order: start-first
+        failure_action: rollback
+        delay: 10s
+      rollback_config:
+        parallelism: 0
+        order: stop-first
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+      labels:
+        # Traefik configurações básicas
+        - "traefik.enable=true"
+        - "traefik.http.routers.vendas-dahorta.rule=Host(`landing.organeasygroup.store`)"
+        - "traefik.http.routers.vendas-dahorta.entrypoints=websecure"
+        - "traefik.http.routers.vendas-dahorta.tls.certresolver=letsencryptresolver"
+        - "traefik.http.services.vendas-dahorta.loadbalancer.server.port=3000"
+        
+        # Middlewares de segurança
+        - "traefik.http.middlewares.vendas-security.headers.sslRedirect=true"
+        - "traefik.http.middlewares.vendas-security.headers.stsSeconds=31536000"
+        - "traefik.http.middlewares.vendas-security.headers.forceSTSHeader=true"
+        - "traefik.http.middlewares.vendas-security.headers.stsIncludeSubdomains=true"
+        - "traefik.http.middlewares.vendas-security.headers.stsPreload=true"
+        - "traefik.http.middlewares.vendas-security.headers.customFrameOptionsValue=SAMEORIGIN"
+        
+        # Aplicar middleware de segurança
+        - "traefik.http.routers.vendas-dahorta.middlewares=vendas-security"
+        
+        # Compressão para melhor performance
+        - "traefik.http.middlewares.vendas-compress.compress=true"
+        - "traefik.http.routers.vendas-dahorta.middlewares=vendas-compress"
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 512M
+        reservations:
+          cpus: '0.25'
+          memory: 256M
+
+networks:
+  network_public:
+    external: true
+    name: network_public
