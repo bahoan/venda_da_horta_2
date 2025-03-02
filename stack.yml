@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   vendas-dahorta:
-    image: docker.io/fmguardia/vendas-dahorta:v1.1.9
+    image: docker.io/arturdiboa/vendas-dahorta:v1.3
     networks:
       - network_swarm_public
     environment:
@@ -28,7 +28,7 @@ services:
       labels:
         # Traefik configurações básicas
         - "traefik.enable=true"
-        - "traefik.http.routers.vendas-dahorta.rule=Host(`landing.organeasygroup.store`)"
+        - "traefik.http.routers.vendas-dahorta.rule=Host(`vendasdahorta.com`) || Host(`www.vendasdahorta.com`)"
         - "traefik.http.routers.vendas-dahorta.entrypoints=websecure"
         - "traefik.http.routers.vendas-dahorta.tls.certresolver=letsencryptresolver"
         - "traefik.http.services.vendas-dahorta.loadbalancer.server.port=80"

@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   landing-page:
-    image: docker.io/fmguardia/vendas-dahorta:v1.1.9
+    image: docker.io/arturdiboa/vendas-dahorta:v1.3
     ports:
       - "3000:80"
     restart: unless-stopped

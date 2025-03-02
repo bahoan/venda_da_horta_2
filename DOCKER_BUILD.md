@@ -55,7 +55,7 @@ npm install @supabase/supabase-js
 
 2. **Build da imagem**
    ```bash
-   docker build -t fmguardia/vendas-dahorta:v1.1.9 .
+   docker build -t arturdiboa/vendas-dahorta:v1.3 .
    ```
 
 3. **Push para DockerHub**
@@ -64,7 +64,7 @@ npm install @supabase/supabase-js
    docker login
 
    # Push da imagem
-   docker push fmguardia/vendas-dahorta:v1.1.9
+   docker push arturdiboa/vendas-dahorta:v1.3
    ```
 
 ## Deploy com Docker Swarm/Portainer
@@ -76,7 +76,7 @@ npm install @supabase/supabase-js
 
 2. Usar o arquivo `stack.yml` para deploy com as seguintes configurações importantes:
    ```yaml
-   image: docker.io/fmguardia/vendas-dahorta:v1.1.9  # Caminho completo da imagem
+   image: docker.io/arturdiboa/vendas-dahorta:v1.3  # Caminho completo da imagem
    environment:
      - VITE_SUPABASE_URL=https://cynnujihthpzbfxlfayy.supabase.co
      - VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN5bm51amlodGhwemJmeGxmYXl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg5OTU4NjgsImV4cCI6MjAzNDU3MTg2OH0.ZUTO3SepkwQsuL85KGwKi8-erpGIy20bYMbiD4voGaA
@@ -251,7 +251,7 @@ services:
 
 ## Notas Importantes
 
-- Sempre use o caminho completo da imagem: `docker.io/fmguardia/vendas-dahorta:v1.1.9`
+- Sempre use o caminho completo da imagem: `docker.io/arturdiboa/vendas-dahorta:v1.3`
 - A porta 80 deve estar consistente em todos os arquivos de configuração
 - O usuário nginx deve ter permissões corretas nos diretórios relevantes
 - As otimizações de performance e privacidade estão configuradas para seguir as melhores práticas atuais do Chrome
@@ -370,54 +370,21 @@ A aplicação agora suporta a personalização do favicon através de uma variá
 
 ## Histórico de Versões
 
-### v1.1.9 (01/03/2025)
+### v1.3 (02/03/2025)
+- Adicionado suporte para múltiplos domínios (vendasdahorta.com e www.vendasdahorta.com)
+- Configuração do Traefik atualizada para rotear ambos os domínios
+- Otimizações de performance e segurança
+- Migração do repositório Docker Hub para arturdiboa
+
+### v1.2 (01/03/2025)
+- Atualizada a versão da imagem Docker para v1.2
+- Corrigido problema de MIME type para arquivos JSX
 - Implementada solução para carregamento de módulos JSX via wrapper JS
-- Criado arquivo main.js que importa main.jsx para corrigir problemas de MIME type
-- Atualizada configuração do Vite para garantir transpilação correta de JSX
 
-### v1.1.8 (01/03/2025)
-- Corrigido problema de diretiva duplicada no default_types.conf
-- Removida a linha 'default_type' para evitar conflito com a configuração padrão do Nginx
-- Otimizada a configuração de tipos MIME
-
-### v1.1.7 (01/03/2025)
-- Adicionada configuração específica para arquivos JSX no nginx.conf
-- Criado arquivo default_types.conf para garantir tipos MIME corretos
-- Configuração explícita de Content-Type para arquivos JSX
-
-### v1.1.6 (01/03/2025)
-- Corrigido MIME type para arquivos JSX (application/javascript)
-- Simplificada a configuração de tipos MIME para evitar conflitos
-
-### v1.1.5 (01/03/2025)
-- Corrigido erro 502 (Bad Gateway) ajustando configurações do Traefik
-- Modificado o Dockerfile para usar o usuário root (evita problemas de permissão)
-- Instalado wget para o healthcheck
-- Corrigida a configuração de middlewares do Traefik para evitar conflitos
-
-### v1.1.4 (01/03/2025)
-- Corrigido erro de sintaxe na configuração de MIME types do Nginx
-- Ajustada a forma como os tipos MIME são adicionados ao arquivo mime.types
-- Corrigida a sintaxe da diretiva 'types' no nginx.conf
-
-### v1.1.3 (01/03/2025)
-- Corrigido erro de MIME type para arquivos JSX
-- Adicionada configuração específica para servir arquivos JSX como JavaScript modules
-
-### v1.1.2 (01/03/2025)
-- Corrigido problema de timeout (erro 504) ajustando configurações do Nginx
-- Alterada a porta do contêiner de 3000 para 80
+### v1.1.9 (28/02/2025)
+- Implementada solução definitiva para problemas de MIME type com JSX usando wrapper JS
 - Adicionadas configurações de timeout para melhorar a estabilidade
 
 ### v1.1.1 (01/03/2025)
 - Adicionado suporte para carregamento dinâmico de depoimentos em vídeo do Supabase
 - Implementado carrossel de depoimentos em tela cheia
-- Adicionado suporte para personalização do favicon via variável de ambiente
-- Corrigido o tratamento de erros na integração com o Supabase
-- Melhorada a responsividade do carrossel de depoimentos
-
-### v1.0.0 (Versão Inicial)
-- Implementação inicial da landing page
-- Integração com Hotmart para processamento de pagamentos
-- Captura de leads no Supabase
-- Design responsivo para dispositivos móveis e desktop
