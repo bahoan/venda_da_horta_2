@@ -402,6 +402,9 @@ const VideoSlider = () => {
           </div>
           <div className="w-full max-w-[400px] mx-auto">
             <WhatsAppButton fullWidth />
+            <p className="text-gray-700 text-sm text-center mt-2">
+              Normalmente respondemos em menos de 2 minutos
+            </p>
           </div>
         </motion.div>
       </div>

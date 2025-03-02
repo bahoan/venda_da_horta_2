@@ -23,8 +23,8 @@ const FinalCTASection = () => {
             <WhatsAppButton fullWidth />
           </div>
 
-          <p className="text-gray-500 text-sm text-center">
-            Normalmente respondemos em 2 minutos
+          <p className="text-gray-700 text-sm text-center mt-2">
+            Normalmente respondemos em menos de 2 minutos
           </p>
         </div>
       </div>

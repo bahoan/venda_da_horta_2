@@ -123,17 +123,17 @@ const ResultsSection = () => {
                 Tirar dúvidas via WhatsApp
               </a>
             </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 1.4 }}
-              className="text-gray-500 mt-4 text-sm"
-            >
-              Normalmente respondemos em menos de 2 minutos
-            </motion.p>
           </div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 1.4 }}
+            className="text-gray-700 text-sm mt-1"
+          >
+            Normalmente respondemos em menos de 2 minutos
+          </motion.p>
         </motion.div>
       </div>
     </section>
