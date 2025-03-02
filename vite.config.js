@@ -24,12 +24,13 @@ export default defineConfig({
         manualChunks: {
           vendor: ['react', 'react-dom'],
         },
-        // Otimiza o carregamento de chunks
-        chunkFileNames: 'assets/[name]-[hash].js',
         entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
         assetFileNames: 'assets/[name]-[hash].[ext]'
       },
     },
+    // Garantir que JSX seja transpilado corretamente
+    assetsInlineLimit: 0,
     // Otimizações de minificação
     minify: 'terser',
     terserOptions: {
@@ -79,5 +80,11 @@ export default defineConfig({
     loader: 'jsx',
     include: /\.(jsx|js)$/,
     exclude: [],
+  },
+  // Definição de variáveis de ambiente para o Supabase
+  define: {
+    'process.env.VITE_SUPABASE_URL': JSON.stringify(process.env.VITE_SUPABASE_URL),
+    'process.env.VITE_SUPABASE_ANON_KEY': JSON.stringify(process.env.VITE_SUPABASE_ANON_KEY),
+    'process.env.VITE_FAVICON_URL': JSON.stringify(process.env.VITE_FAVICON_URL || '/vite.svg')
   }
 })

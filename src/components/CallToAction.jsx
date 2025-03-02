@@ -44,15 +44,6 @@ export default function CallToAction() {
             Se você quer vender mais de R$2.000 por dia de entrega, toda semana, com constância e crescimento, clique no botão abaixo agora
           </h2>
 
-          <motion.a
-            href="#"
-            className="btn-primary inline-block mb-12 text-lg"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Entrar no Vendas DaHorta
-          </motion.a>
-
           <div className="grid gap-8">
             {features.map((feature, index) => (
               <motion.div

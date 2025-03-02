@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import GreenCTAButton from './GreenCTAButton';
 
 const ResultsSection = () => {
   const [isGifLoaded, setIsGifLoaded] = useState(false);
@@ -101,13 +102,9 @@ const ResultsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 1 }}
+              className="w-full"
             >
-              <a 
-                href="#" 
-                className="block w-full bg-green-500 text-white py-4 px-8 rounded-full font-bold text-lg hover:bg-green-600 transition-colors"
-              >
-                Entrar no Vendas DaHorta
-              </a>
+              <GreenCTAButton fullWidth />
             </motion.div>
 
             <motion.div

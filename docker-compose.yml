@@ -2,7 +2,12 @@ version: '3.8'
 
 services:
   landing-page:
-    build: .
+    image: docker.io/fmguardia/vendas-dahorta:v1.1.9
     ports:
-      - "3000:3000"
+      - "3000:80"
     restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - VITE_SUPABASE_URL=${VITE_SUPABASE_URL:-https://cynnujihthpzbfxlfayy.supabase.co}
+      - VITE_SUPABASE_ANON_KEY=${VITE_SUPABASE_ANON_KEY:-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN5bm51amlodGhwemJmeGxmYXl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg5OTU4NjgsImV4cCI6MjAzNDU3MTg2OH0.ZUTO3SepkwQsuL85KGwKi8-erpGIy20bYMbiD4voGaA}
+      - VITE_FAVICON_URL=${VITE_FAVICON_URL:-/vite.svg}

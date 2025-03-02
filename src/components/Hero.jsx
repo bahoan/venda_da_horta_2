@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import BenefitsList from './BenefitsList';
 import VideoPlayer from './VideoPlayer';
 import OptimizedImage from './OptimizedImage';
+import CTAButton from './CTAButton';
 
 export default function Hero() {
   return (
@@ -43,6 +44,15 @@ export default function Hero() {
 
           <div className="max-w-4xl mx-auto mt-8">
             <VideoPlayer />
+          </div>
+          
+          <div className="mt-8 flex justify-center">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <CTAButton />
+            </motion.div>
           </div>
         </motion.div>
       </div>

@@ -2,11 +2,14 @@ version: "3.7"
 
 services:
   vendas-dahorta:
-    image: docker.io/fmguardia/vendas-dahorta:v1.0
+    image: docker.io/fmguardia/vendas-dahorta:v1.1.9
     networks:
-      - network_public
+      - network_swarm_public
     environment:
       - NODE_ENV=production
+      - VITE_SUPABASE_URL=https://cynnujihthpzbfxlfayy.supabase.co
+      - VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN5bm51amlodGhwemJmeGxmYXl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg5OTU4NjgsImV4cCI6MjAzNDU3MTg2OH0.ZUTO3SepkwQsuL85KGwKi8-erpGIy20bYMbiD4voGaA
+      - VITE_FAVICON_URL=https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-d8dc8654-ce57-4a62-9e4b-27a9ad507552
     deploy:
       mode: replicated
       replicas: 1
@@ -28,7 +31,11 @@ services:
         - "traefik.http.routers.vendas-dahorta.rule=Host(`landing.organeasygroup.store`)"
         - "traefik.http.routers.vendas-dahorta.entrypoints=websecure"
         - "traefik.http.routers.vendas-dahorta.tls.certresolver=letsencryptresolver"
-        - "traefik.http.services.vendas-dahorta.loadbalancer.server.port=3000"
+        - "traefik.http.services.vendas-dahorta.loadbalancer.server.port=80"
+        
+        # Configurações de timeout
+        - "traefik.http.middlewares.vendas-dahorta-timeout.headers.customRequestHeaders.X-Forwarded-Timeout=300"
+        - "traefik.http.middlewares.vendas-dahorta-timeout.headers.customResponseHeaders.X-Server-Timeout=300"
         
         # Middlewares de segurança
         - "traefik.http.middlewares.vendas-security.headers.sslRedirect=true"
@@ -38,21 +45,30 @@ services:
         - "traefik.http.middlewares.vendas-security.headers.stsPreload=true"
         - "traefik.http.middlewares.vendas-security.headers.customFrameOptionsValue=SAMEORIGIN"
         
-        # Aplicar middleware de segurança
-        - "traefik.http.routers.vendas-dahorta.middlewares=vendas-security"
-        
         # Compressão para melhor performance
         - "traefik.http.middlewares.vendas-compress.compress=true"
-        - "traefik.http.routers.vendas-dahorta.middlewares=vendas-compress"
+        
+        # Aplicar todos os middlewares
+        - "traefik.http.routers.vendas-dahorta.middlewares=vendas-security@docker,vendas-compress@docker,vendas-dahorta-timeout@docker"
+        
+        # Traefik configurações adicionais
+        - "traefik.http.services.vendas-dahorta.loadbalancer.passhostheader=true"
+        - "traefik.http.services.vendas-dahorta.loadbalancer.responseforwarding.flushinterval=100ms"
       resources:
         limits:
-          cpus: '0.50'
-          memory: 512M
+          cpus: '1'
+          memory: 1024M
         reservations:
           cpus: '0.25'
           memory: 256M
+    healthcheck:
+      test: ["CMD", "wget", "--no-check-certificate", "-qO-", "http://localhost:80/index.html"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
 networks:
-  network_public:
+  network_swarm_public:
     external: true
-    name: network_public
+    name: network_swarm_public

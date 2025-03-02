@@ -11,25 +11,37 @@ RUN npm ci
 COPY . .
 RUN npm run build
 
-# Production stage
-FROM nginx:alpine
+# Estágio de produção
+FROM nginx:alpine as production
 
-# Copy built assets and config
+# Copiar os arquivos de build para o diretório do Nginx
 COPY --from=build /app/dist /usr/share/nginx/html
+
+# Configurações de timeout para o Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx-proxy-timeout.conf /etc/nginx/conf.d/timeout.conf
 
-# Expose port
-EXPOSE 3000
+# Usar nosso arquivo mime.types personalizado
+COPY mime.types /etc/nginx/mime.types
+COPY default_types.conf /etc/nginx/conf.d/default_types.conf
 
-# Use non-root user
-RUN chown -R nginx:nginx /usr/share/nginx/html && \
-    chmod -R 755 /usr/share/nginx/html && \
+# Configurar permissões
+RUN mkdir -p /var/cache/nginx && \
+    mkdir -p /var/log/nginx && \
+    mkdir -p /etc/nginx/conf.d && \
     chown -R nginx:nginx /var/cache/nginx && \
     chown -R nginx:nginx /var/log/nginx && \
     chown -R nginx:nginx /etc/nginx/conf.d && \
-    touch /var/run/nginx.pid && \
-    chown -R nginx:nginx /var/run/nginx.pid
+    chown -R nginx:nginx /usr/share/nginx/html && \
+    chmod -R 755 /usr/share/nginx/html
 
-USER nginx
+# Instalar wget para healthcheck
+RUN apk add --no-cache wget
+
+# Usar root para iniciar o Nginx (evita problemas de permissão)
+# USER nginx
+
+# Expose port
+EXPOSE 80
 
 CMD ["nginx", "-g", "daemon off;"]
