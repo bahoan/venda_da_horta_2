@@ -1,16 +1,6 @@
 import { useState, useEffect } from 'react'
-import Hero from './components/Hero'
-import CallToAction from './components/CallToAction'
-import Gallery from './components/Gallery'
-import VideoSlider from './components/VideoSlider'
-import MethodSection from './components/MethodSection'
-import TimelineSection from './components/TimelineSection'
-import ResultsSection from './components/ResultsSection'
-import ScenariosSection from './components/ScenariosSection'
-import MediaSection from './components/MediaSection'
-import FAQSection from './components/FAQSection'
-import FinalCTASection from './components/FinalCTASection'
-import Footer from './components/Footer'
+import { pageBlocks } from './components/blocks'
+import { Footer } from './components/common'
 import { VERSION } from './version.js'
 import { setCookie, getCookie } from './utils/cookieManager.js'
 import { ModalProvider } from './contexts/ModalContext'
@@ -52,17 +42,9 @@ export default function App() {
         Version: {VERSION}
       </div>
       <main className="min-h-screen">
-        <Hero />
-        <CallToAction />
-        <Gallery />
-        <VideoSlider />
-        <MethodSection />
-        <TimelineSection />
-        <ResultsSection />
-        <ScenariosSection />
-        <MediaSection />
-        <FAQSection />
-        <FinalCTASection />
+        {pageBlocks.map(({ component: Block }) => (
+          <Block key={Block.name} />
+        ))}
       </main>
       <Footer />
     </ModalProvider>

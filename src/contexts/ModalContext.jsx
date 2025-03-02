@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from 'react';
-import LeadModal from '../components/LeadModal';
+import { LeadModal } from '../components/ui';
 
 // Criação do contexto
 const ModalContext = createContext();

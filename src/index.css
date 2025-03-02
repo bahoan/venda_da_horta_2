@@ -23,8 +23,8 @@
   }
   
   .btn-primary {
-    @apply bg-secondary hover:bg-secondary-light text-white font-semibold py-4 px-8 rounded-full 
-    transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg uppercase tracking-wide;
+    @apply bg-brand-orange hover:bg-brand-orange-light text-white font-semibold py-4 px-8 rounded-full 
+      transition-colors duration-300 inline-flex items-center justify-center;
   }
 }
 
@@ -58,4 +58,29 @@
 .features-scroll::-webkit-scrollbar-thumb {
   background-color: rgba(7, 170, 29, 0.3);
   border-radius: 3px;
+}
+
+/* Estilos customizados para o Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  transition: all 0.3s ease;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  display: none !important;
+}
+
+.swiper-pagination-bullet {
+  width: 8px !important;
+  height: 8px !important;
+  background: #E5E7EB !important;
+  opacity: 1 !important;
+  transition: all 0.3s ease !important;
+}
+
+.swiper-pagination-bullet-active {
+  width: 24px !important;
+  border-radius: 4px !important;
+  background: #22C55E !important;
 }

@@ -1,0 +1,23 @@
+/* Remover a borda preta padrão do navegador nos inputs */
+input:focus, select:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Estilos personalizados para inputs */
+.input-default:focus {
+  border-color: #07AA1D !important;
+  box-shadow: 0 0 0 1px #07AA1D !important;
+}
+
+.input-error:focus {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 1px #ef4444 !important;
+}
+
+/* Estilos para checkbox e radio */
+input[type="checkbox"]:focus, input[type="radio"]:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #07AA1D !important;
+}

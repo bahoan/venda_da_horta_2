@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { SproutIcon, TrendingUpIcon, VideoIcon } from 'lucide-react';
-import GreenCTAButton from './GreenCTAButton';
-import WhatsAppButton from './WhatsAppButton';
+import { CTAButton, WhatsAppButton } from '../ui';
 
 const ScenariosSection = () => {
   const [isGifLoaded, setIsGifLoaded] = useState(false);
@@ -167,16 +166,12 @@ const ScenariosSection = () => {
                 </div>
 
                 <div className="w-full max-w-[400px]">
-                  <GreenCTAButton fullWidth />
+                  <CTAButton variant="green" fullWidth className="mb-4" />
                 </div>
 
                 <div className="w-full max-w-[400px]">
                   <WhatsAppButton fullWidth />
                 </div>
-
-                <p className="text-gray-700 text-sm text-center mt-2">
-                  Normalmente respondemos em menos de 2 minutos
-                </p>
               </div>
             </motion.div>
           </motion.div>

@@ -3,7 +3,8 @@ import { useState, useRef } from 'react';
 import { Play } from 'lucide-react';
 
 export default function VideoPlayer() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [hasStarted, setHasStarted] = useState(false);
+  const [isEnded, setIsEnded] = useState(false);
   const videoRef = useRef(null);
 
   // URL da imagem de capa
@@ -12,7 +13,8 @@ export default function VideoPlayer() {
   const handlePlayVideo = () => {
     if (videoRef.current) {
       videoRef.current.play();
-      setIsPlaying(true);
+      setHasStarted(true);
+      setIsEnded(false);
     }
   };
 
@@ -29,13 +31,16 @@ export default function VideoPlayer() {
           src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-7318841f-295b-45ed-a059-39a9b405a92b"
           className="absolute top-0 left-0 w-full h-full"
           preload="metadata"
-          controls={isPlaying}
-          onPlay={() => setIsPlaying(true)}
-          onPause={() => setIsPlaying(false)}
-          onEnded={() => setIsPlaying(false)}
+          controls
+          onPlay={() => {
+            setHasStarted(true);
+            setIsEnded(false);
+          }}
+          onEnded={() => setIsEnded(true)}
         />
         
-        {!isPlaying && (
+        {/* Mostra a capa apenas se o vídeo não começou ou terminou */}
+        {(!hasStarted || isEnded) && (
           <div 
             className="absolute inset-0 cursor-pointer"
             onClick={handlePlayVideo}

@@ -1,8 +1,5 @@
 import { motion } from 'framer-motion';
-import BenefitsList from './BenefitsList';
-import VideoPlayer from './VideoPlayer';
-import OptimizedImage from './OptimizedImage';
-import CTAButton from './CTAButton';
+import { BenefitsList, VideoPlayer, OptimizedImage, CTAButton } from '../ui';
 
 export default function Hero() {
   return (
