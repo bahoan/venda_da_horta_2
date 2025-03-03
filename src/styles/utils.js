@@ -162,15 +162,18 @@ export const selectorClasses = {
 };
 
 /**
- * Classes para espaçamentos
+ * Classes para espaçamentos padrão
+ * Usadas para manter consistência de espaçamento em todo o projeto
  */
 export const spacingClasses = {
-  // Margens entre seções
-  sectionGap: 'mb-8 md:mb-16',
-  // Margens entre componentes
-  componentGap: 'mb-4 md:mb-8',
-  // Margens entre elementos
-  elementGap: 'mb-2 md:mb-4',
+  // Espaçamento padrão entre elementos
+  elementSpacing: 'mb-5 md:mb-6',
+  // Espaçamento menor para itens de lista ou elementos menores
+  smallSpacing: 'mb-3 md:mb-4',
+  // Espaçamento maior para seções
+  sectionSpacing: 'mb-10 md:mb-16',
+  // Espaçamento horizontal padrão
+  horizontalSpacing: 'mx-4 md:mx-6',
 };
 
 /**

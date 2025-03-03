@@ -5,9 +5,9 @@ import AppRoutes from './routes.jsx'
 import './styles/fonts.css'
 import './styles/custom.css'
 import './index.css'
-import { VERSION } from './version.js'
+// Removida a importação da versão
 
-console.log('Vendas DaHorta Version:', VERSION)
+// Removido o log da versão
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

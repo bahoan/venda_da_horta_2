@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { CTAButton, WhatsAppButton } from '../ui';
+import { ActionButtons } from '../ui';
+import { Heading2, HighlightText, Paragraph, SmallText } from '../ui/typography/Typography';
+import { spacingClasses, textClasses } from '../../styles/utils';
 
 const ResultsSection = () => {
   const [isGifLoaded, setIsGifLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const { elementSpacing, sectionSpacing } = spacingClasses;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -30,17 +33,17 @@ const ResultsSection = () => {
     <section id="results-section" className="w-full bg-[#E6E6E6] py-16">
       <div className="container mx-auto px-4">
         <div className="max-w-5xl mx-auto">
-          <motion.h2 
+          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-center text-3xl md:text-4xl font-bold mb-3"
+            className={`text-center ${elementSpacing}`}
           >
-            Todo dia eu recebo esse tipo de mensagem de{' '}
-            <span className="text-green-500">
-              quem aplica o Método Vendas DaHorta
-            </span>
-          </motion.h2>
+            <HighlightText>
+              Todo dia eu recebo esse tipo de mensagem<br />
+              de <span className="text-brand-green">quem aplica o Método Vendas DaHorta</span>
+            </HighlightText>
+          </motion.div>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <motion.div
@@ -96,32 +99,22 @@ const ResultsSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isVisible ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="mt-16 max-w-2xl mx-auto"
+            className={`mt-16 max-w-2xl mx-auto ${sectionSpacing}`}
           >
-            <div className="bg-white rounded-3xl p-8 mb-8 relative shadow-sm">
-              <blockquote className="text-gray-700 text-xl text-center">
-                "Tudo na vida, depois que aprende, fica fácil – inclusive vender pela internet."
-              </blockquote>
-              <div className="w-8 h-8 bg-white transform rotate-45 absolute -bottom-4 left-1/2 -translate-x-1/2"></div>
-            </div>
+            {/* A frase foi removida conforme solicitado */}
 
             <div className="text-center space-y-4 mt-12">
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={isVisible ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: 0.8 }}
-                className="w-full"
+                className="w-full max-w-3xl mx-auto"
               >
-                <CTAButton variant="green" fullWidth />
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={isVisible ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: 1 }}
-                className="w-full"
-              >
-                <WhatsAppButton fullWidth />
+                <ActionButtons 
+                  fullWidth 
+                  showOnlyMainButton={false}
+                  topText="Até quando você vai esperar para parar de sofrer por não conseguir vender todos os produtos da horta?"
+                />
               </motion.div>
             </div>
           </motion.div>

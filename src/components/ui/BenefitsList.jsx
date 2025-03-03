@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
+import { SmallText } from './typography/Typography';
 
-const benefits = [
+// Dividir os benefícios em duas colunas
+const leftColumnBenefits = [
   'Como atrair novos clientes no WhatsApp todos os dias',
   'Como vender primeiro e colher depois, sem desperdício',
   'A estratégia para vender mais de R$2.000 por dia de entrega, mesmo começando do zero',
@@ -9,6 +11,9 @@ const benefits = [
   'O maior erro ao vender hortaliças online - e como evitá-lo',
   'Quanto investir em anúncios para vender hortaliças',
   'Como vender hortaliças, mesmo sem ter uma horta',
+];
+
+const rightColumnBenefits = [
   'O Segredo do vídeo de 12 segundos que pode trazer dezenas de pedidos em um só dia',
   'Como automatizar vendas no WhatsApp e faturar até dormindo',
   'Como usar a melhor ferramenta para enviar sua lista de produtos, notinhas e acompanhar relatórios de pedidos de forma gratuita',
@@ -37,26 +42,42 @@ const itemVariants = {
   }
 };
 
+const BenefitItem = ({ benefit }) => (
+  <motion.div
+    variants={itemVariants}
+    className="flex items-start gap-1.5 md:gap-2 mb-2 md:mb-3"
+  >
+    <div className="flex-shrink-0 w-3.5 h-3.5 md:w-4 md:h-4 rounded-full bg-brand-green flex items-center justify-center mt-0.5">
+      <Check className="w-2.5 h-2.5 md:w-3 md:h-3 text-white stroke-[3]" />
+    </div>
+    <SmallText>{benefit}</SmallText>
+  </motion.div>
+);
+
 export default function BenefitsList() {
   return (
-    <motion.div
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
-      className="max-w-4xl mx-auto text-left grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4"
-    >
-      {benefits.map((benefit, index) => (
-        <motion.div
-          key={index}
-          variants={itemVariants}
-          className="flex items-start gap-2 md:gap-3"
-        >
-          <div className="flex-shrink-0 w-5 h-5 md:w-6 md:h-6 rounded-full bg-brand-green bg-opacity-10 flex items-center justify-center mt-1">
-            <Check className="w-3 h-3 md:w-4 md:h-4 text-brand-green" />
-          </div>
-          <span className="text-base md:text-lg">{benefit}</span>
-        </motion.div>
-      ))}
-    </motion.div>
+    <div className="max-w-4xl mx-auto text-left flex flex-col md:flex-row gap-4 md:gap-6">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="flex-1"
+      >
+        {leftColumnBenefits.map((benefit, index) => (
+          <BenefitItem key={index} benefit={benefit} />
+        ))}
+      </motion.div>
+      
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="flex-1"
+      >
+        {rightColumnBenefits.map((benefit, index) => (
+          <BenefitItem key={index} benefit={benefit} />
+        ))}
+      </motion.div>
+    </div>
   );
 }

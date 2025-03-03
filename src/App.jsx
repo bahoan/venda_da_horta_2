@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { pageBlocks } from './components/blocks'
 import { Footer } from './components/common'
-import { VERSION } from './version.js'
 import { setCookie, getCookie } from './utils/cookieManager.js'
 import { ModalProvider } from './contexts/ModalContext'
 
@@ -38,9 +37,7 @@ export default function App() {
           </button>
         </div>
       )}
-      <div className="fixed bottom-0 right-0 bg-black bg-opacity-50 text-white text-xs p-1 z-50">
-        Version: {VERSION}
-      </div>
+      {/* Removido o indicador de versão */}
       <main className="min-h-screen">
         {pageBlocks.map(({ component: Block }) => (
           <Block key={Block.name} />

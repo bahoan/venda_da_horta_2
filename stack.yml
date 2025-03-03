@@ -7,9 +7,9 @@ services:
       - network_swarm_public
     environment:
       - NODE_ENV=production
-      - VITE_SUPABASE_URL=https://cynnujihthpzbfxlfayy.supabase.co
-      - VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN5bm51amlodGhwemJmeGxmYXl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg5OTU4NjgsImV4cCI6MjAzNDU3MTg2OH0.ZUTO3SepkwQsuL85KGwKi8-erpGIy20bYMbiD4voGaA
-      - VITE_FAVICON_URL=https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-d8dc8654-ce57-4a62-9e4b-27a9ad507552
+      - VITE_SUPABASE_URL=<sua url>
+      - VITE_SUPABASE_ANON_KEY=<sua url>
+      - VITE_FAVICON_URL=<sua url>
     deploy:
       mode: replicated
       replicas: 1

@@ -10,6 +10,7 @@ export { default as BenefitsList } from './BenefitsList'
 // Componentes de botões
 export { default as CTAButton } from './buttons/CTAButton'
 export { default as WhatsAppButton } from './buttons/WhatsAppButton'
+export { default as ActionButtons } from './buttons/ActionButtons'
 
 // Componentes de formulários
 export { default as Input } from './forms/Input'

@@ -35,8 +35,8 @@ npm install @supabase/supabase-js
 1. **Configuração local**
    - Crie um arquivo `.env` baseado no `.env.example` com suas credenciais do Supabase:
    ```
-   VITE_SUPABASE_URL=https://cynnujihthpzbfxlfayy.supabase.co
-   VITE_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImN5bm51amlodGhwemJmeGxmYXl5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTg5OTU4NjgsImV4cCI6MjAzNDU3MTg2OH0.ZUTO3SepkwQsuL85KGwKi8-erpGIy20bYMbiD4voGaA
+   VITE_SUPABASE_URL=Sua URL
+   VITE_SUPABASE_ANON_KEY=Sua chave anon
    VITE_FAVICON_URL=/vite.svg
    ```
    - **IMPORTANTE**: Não comita o arquivo `.env` no GitHub
