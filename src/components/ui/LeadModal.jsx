@@ -159,7 +159,7 @@ export default function LeadModal({ isOpen, onClose }) {
     >
       <div 
         ref={modalRef}
-        className="bg-white rounded-lg p-6 w-full max-w-md mx-auto relative"
+        className="bg-white rounded-lg p-6 w-full max-w-md mx-4 relative"
       >
         <div className="flex justify-between items-center mb-6 pr-2">
           <h2 className="text-xl font-bold text-green-600 pr-8">

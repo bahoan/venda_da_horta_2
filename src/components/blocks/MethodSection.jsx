@@ -6,8 +6,8 @@ const MethodSection = () => {
   const { elementSpacing, sectionSpacing } = spacingClasses;
   
   return (
-    <section className="w-full py-16 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="w-full py-8 bg-white mobile-padding">
+      <div className="max-w-4xl mx-auto">
         {/* Method Description */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -18,7 +18,7 @@ const MethodSection = () => {
         >
           <div className={elementSpacing}>
             <HighlightText>
-              Um plano <span className="text-brand-green">detalhado</span> para você <span className="text-brand-green">começar a vender hortaliças e produtos</span><br />
+              Um plano <span className="text-brand-green">detalhado</span> para você <span className="text-brand-green">começar a vender</span> hortaliças e produtos
               da roça pela internet <span className="text-brand-green">e aumentar suas vendas semana após semana</span>
             </HighlightText>
           </div>

@@ -25,10 +25,10 @@ export default function ActionButtons({
   };
 
   return (
-    <div className={`flex flex-col gap-4 w-full ${className}`}>
+    <div className={`flex flex-col gap-3 w-full ${className}`}>
       {/* Texto dinâmico acima dos botões */}
       {topText && (
-        <p className="text-lg font-light text-center italic mb-2">
+        <p className="text-lg font-light text-center italic mb-1 px-0">
           "{topText}"
         </p>
       )}
@@ -70,7 +70,7 @@ export default function ActionButtons({
             </svg>
             <span>Tirar dúvidas via WhatsApp</span>
           </a>
-          <p className="text-gray-700 text-sm mt-2 text-center">
+          <p className="text-gray-700 text-sm mt-1 text-center">
             Normalmente respondemos em menos de 2 minutos
           </p>
         </div>

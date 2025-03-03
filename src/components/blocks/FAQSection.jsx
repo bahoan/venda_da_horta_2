@@ -44,8 +44,8 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(2); // Terceira pergunta aberta por padrão
 
   return (
-    <section className="w-full py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="w-full py-8 bg-gray-50 mobile-padding">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -45,23 +45,23 @@ const itemVariants = {
 const BenefitItem = ({ benefit }) => (
   <motion.div
     variants={itemVariants}
-    className="flex items-start gap-1.5 md:gap-2 mb-2 md:mb-3"
+    className="flex items-start gap-1.5 md:gap-2 mb-2 md:mb-3 w-full"
   >
     <div className="flex-shrink-0 w-3.5 h-3.5 md:w-4 md:h-4 rounded-full bg-brand-green flex items-center justify-center mt-0.5">
       <Check className="w-2.5 h-2.5 md:w-3 md:h-3 text-white stroke-[3]" />
     </div>
-    <SmallText>{benefit}</SmallText>
+    <SmallText className="text-left flex-1">{benefit}</SmallText>
   </motion.div>
 );
 
 export default function BenefitsList() {
   return (
-    <div className="max-w-4xl mx-auto text-left flex flex-col md:flex-row gap-4 md:gap-6">
+    <div className="w-full flex flex-col md:flex-row gap-3 md:gap-6">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="flex-1"
+        className="flex-1 w-full"
       >
         {leftColumnBenefits.map((benefit, index) => (
           <BenefitItem key={index} benefit={benefit} />
@@ -72,7 +72,7 @@ export default function BenefitsList() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="flex-1"
+        className="flex-1 w-full"
       >
         {rightColumnBenefits.map((benefit, index) => (
           <BenefitItem key={index} benefit={benefit} />

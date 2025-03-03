@@ -6,25 +6,51 @@
   html {
     scroll-behavior: smooth;
     height: 100%;
+    overflow-x: hidden;
   }
 
   body {
     @apply text-gray-800 min-h-screen flex flex-col;
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
   }
 
   #root {
     @apply flex-1 flex flex-col;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 }
 
 @layer components {
   .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply w-full mx-auto;
+    padding-left: 0;
+    padding-right: 0;
   }
   
   .btn-primary {
     @apply bg-brand-orange hover:bg-brand-orange-light text-white font-semibold py-4 px-8 rounded-full 
       transition-colors duration-300 inline-flex items-center justify-center;
+  }
+
+  /* Classe padrão para margens em dispositivos móveis */
+  .mobile-padding {
+    @apply px-4;
+  }
+
+  /* Classe para conteúdo centralizado com largura máxima e padding padrão */
+  .content-container {
+    @apply w-full mx-auto max-w-4xl mobile-padding;
+  }
+
+  /* Classe específica para seções que precisam manter padding em mobile */
+  .video-section-container {
+    @apply w-full mx-auto max-w-4xl px-0 md:px-4;
   }
 }
 

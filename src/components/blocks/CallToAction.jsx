@@ -40,8 +40,8 @@ export default function CallToAction() {
   const { elementSpacing } = spacingClasses;
   
   return (
-    <section className="min-h-screen flex items-center bg-gray-50">
-      <div className="container py-8">
+    <section className="min-h-screen flex items-center bg-gray-50 mobile-padding">
+      <div className="max-w-4xl mx-auto py-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

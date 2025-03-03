@@ -30,10 +30,10 @@ const ScenariosSection = () => {
   ];
 
   return (
-    <section className="w-full py-16">
-      <div className="container mx-auto px-4">
+    <section className={`py-8 md:py-12 bg-white ${sectionSpacing} mobile-padding`}>
+      <div className="max-w-4xl mx-auto">
         {/* Cards de Cenários */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {scenarios.map((scenario, index) => (
             <motion.div
               key={index}
@@ -132,10 +132,10 @@ const ScenariosSection = () => {
             className={`mt-24 max-w-4xl mx-auto text-center ${sectionSpacing}`}
           >
             <div className={`${elementSpacing} text-center`}>
-              <div className="inline-flex items-center gap-3 justify-center">
-                <VideoIcon className="w-8 h-8 text-brand-green" />
-                <HighlightText className="mt-1">
-                  Encontros por <span className="text-brand-green">Vídeo Chamada</span>
+              <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 justify-center">
+                <VideoIcon className="w-6 h-6 sm:w-8 sm:h-8 text-brand-green" />
+                <HighlightText className="text-xl sm:text-2xl mt-1">
+                  Encontros por <span className="text-brand-green block sm:inline">Vídeo Chamada</span>
                 </HighlightText>
               </div>
             </div>
@@ -169,13 +169,14 @@ const ScenariosSection = () => {
                 />
               </div>
 
-              <div className="px-6 py-8 flex flex-col items-center gap-6">
+              <div className="px-0 sm:px-6 py-8 flex flex-col items-center gap-6">
                 {/* ActionButtons com a frase */}
                 <div className="w-full max-w-3xl mx-auto">
                   <ActionButtons 
                     fullWidth 
                     showOnlyMainButton={false}
                     topText="Até quando você vai esperar para parar de sofrer por não conseguir vender todos os produtos da horta?"
+                    className="px-0"
                   />
                 </div>
               </div>

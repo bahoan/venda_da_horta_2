@@ -17,8 +17,8 @@ export default function Hero() {
   const { elementSpacing } = spacingClasses;
   
   return (
-    <section className="flex-1 flex items-center justify-center py-4 md:py-6">
-      <div className="container">
+    <section className="flex-1 flex items-center justify-center py-2 md:py-3 mobile-padding">
+      <div className="w-full"> 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -53,11 +53,11 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className={`px-4 ${elementSpacing}`}>
+          <div className={`max-w-4xl mx-auto ${elementSpacing}`}>
             <BenefitsList />
           </div>
 
-          <div className={`max-w-4xl mx-auto ${elementSpacing}`}>
+          <div className={`video-section-container ${elementSpacing}`}>
             <VideoPlayer />
           </div>
           
@@ -67,7 +67,7 @@ export default function Hero() {
             </Paragraph>
           </div>
           
-          <div className="max-w-4xl mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
             <ActionButtons 
               showOnlyMainButton={true} 
               fullWidth

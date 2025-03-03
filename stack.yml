@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   vendas-dahorta:
-    image: docker.io/arturdiboa/vendas-dahorta:v1.3
+    image: docker.io/arturdiboa/vendas-dahorta-02:v1
     networks:
       - network_swarm_public
     environment:

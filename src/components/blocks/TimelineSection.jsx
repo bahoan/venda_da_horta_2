@@ -86,8 +86,8 @@ const TimelineSection = () => {
   ];
 
   return (
-    <section className="w-full py-16 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="w-full py-8 bg-white">
+      <div className="max-w-4xl mx-auto mobile-padding">
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -24,8 +24,8 @@ const MediaSection = () => {
   ];
 
   return (
-    <section className="pt-8 pb-24 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="w-full py-4 bg-white mobile-padding">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

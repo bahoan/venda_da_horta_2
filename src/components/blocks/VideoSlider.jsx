@@ -335,8 +335,8 @@ const VideoSlider = () => {
   // Renderiza um loader enquanto os dados estão sendo carregados
   if (loading) {
     return (
-      <section className="bg-[#F9FAFB] py-16">
-        <div className="container">
+      <section className="bg-[#F9FAFB] py-8">
+        <div className="max-w-4xl mx-auto mobile-padding">
           <div className="text-center mb-12">
             <HighlightText>
               Carregando depoimentos...
@@ -353,8 +353,8 @@ const VideoSlider = () => {
   }
 
   return (
-    <section className="bg-gray-50 py-16">
-      <div className="container mx-auto">
+    <section className="bg-gray-50 py-8">
+      <div className="max-w-4xl mx-auto mobile-padding">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -364,7 +364,7 @@ const VideoSlider = () => {
         >
           <HighlightText>
             Eu duvido você ver essas histórias e não<br />
-            querer o mesmo para suas vendas e <span className="text-brand-green">sua vida</span>
+            querer o mesmo para <span className="text-brand-green">suas vendas e sua vida</span>
           </HighlightText>
         </motion.div>
 
@@ -429,7 +429,7 @@ const VideoSlider = () => {
         </Swiper>
 
         {/* Quote and CTA Section */}
-        <div className="container mx-auto px-4 pb-8">
+        <div className="max-w-4xl mx-auto pb-8">
           {/* Quote - Removido pois agora está no componente ActionButtons */}
 
           {/* ActionButtons */}
@@ -438,7 +438,7 @@ const VideoSlider = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col gap-4 w-full max-w-3xl mx-auto mb-8 px-4"
+            className="flex flex-col gap-4 w-full max-w-3xl mx-auto mb-8"
           >
             <ActionButtons 
               fullWidth 
