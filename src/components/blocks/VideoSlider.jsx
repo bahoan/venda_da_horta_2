@@ -367,7 +367,10 @@ const VideoSlider = () => {
             querer o mesmo para <span className="text-brand-green">suas vendas e sua vida</span>
           </HighlightText>
         </motion.div>
+      </div>
 
+      {/* Área do carrossel com margem infinita */}
+      <div className="w-full overflow-hidden">
         <Swiper
           ref={swiperRef}
           modules={[Navigation, Pagination, Autoplay]}
@@ -427,7 +430,9 @@ const VideoSlider = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
 
+      <div className="max-w-4xl mx-auto mobile-padding">
         {/* Quote and CTA Section */}
         <div className="max-w-4xl mx-auto pb-8">
           {/* Quote - Removido pois agora está no componente ActionButtons */}
