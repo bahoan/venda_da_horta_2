@@ -367,7 +367,10 @@ const VideoSlider = () => {
             querer o mesmo para <span className="text-brand-green">suas vendas e sua vida</span>
           </HighlightText>
         </motion.div>
+      </div>
 
+      {/* Container do Swiper expandido para ocupar toda a largura */}
+      <div className="w-full">
         <Swiper
           ref={swiperRef}
           modules={[Navigation, Pagination, Autoplay]}
@@ -427,35 +430,35 @@ const VideoSlider = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-
-        {/* Quote and CTA Section */}
-        <div className="max-w-4xl mx-auto pb-8">
-          {/* Quote - Removido pois agora está no componente ActionButtons */}
-
-          {/* ActionButtons */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col gap-4 w-full max-w-3xl mx-auto mb-8"
-          >
-            <ActionButtons 
-              fullWidth 
-              topText="Eles poderiam nem estar mais trabalhando com horta se não tivessem clicado no botão abaixo"
-            />
-          </motion.div>
-        </div>
-
-        {/* Modal de Vídeo */}
-        <VideoModal 
-          isOpen={modalOpen}
-          onClose={closeModal}
-          currentVideo={videos[currentVideoIndex]}
-          onPrev={goToPrevVideo}
-          onNext={goToNextVideo}
-        />
       </div>
+
+      {/* Quote and CTA Section */}
+      <div className="max-w-4xl mx-auto pb-8 mobile-padding">
+        {/* Quote - Removido pois agora está no componente ActionButtons */}
+
+        {/* ActionButtons */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="flex flex-col gap-4 w-full max-w-3xl mx-auto mb-8"
+        >
+          <ActionButtons 
+            fullWidth 
+            topText="Eles poderiam nem estar mais trabalhando com horta se não tivessem clicado no botão abaixo"
+          />
+        </motion.div>
+      </div>
+
+      {/* Modal de Vídeo */}
+      <VideoModal 
+        isOpen={modalOpen}
+        onClose={closeModal}
+        currentVideo={videos[currentVideoIndex]}
+        onPrev={goToPrevVideo}
+        onNext={goToNextVideo}
+      />
     </section>
   );
 };
