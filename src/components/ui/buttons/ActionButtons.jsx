@@ -1,5 +1,6 @@
 import React from 'react';
 import { useModal } from "../../../contexts/ModalContext";
+import { trackWhatsAppButtonClick, trackEnterButtonClick } from "../../../utils/gtm";
 
 /**
  * Componente que contém os botões de ação principal (Entrar no Vendas DaHorta) e suporte (WhatsApp)
@@ -21,7 +22,14 @@ export default function ActionButtons({
   const whatsappUrl = "https://api.whatsapp.com/send/?phone=5544998105067&text=Ol%C3%A1%2C+tenho+d%C3%BAvidas+sobre+o+M%C3%A9todo+Vendas+DaHorta&type=phone_number&app_absent=0";
   
   const handleEnterClick = () => {
+    // Rastreia o clique no botão principal
+    trackEnterButtonClick('action_buttons');
     openModal();
+  };
+
+  const handleWhatsAppClick = () => {
+    // Rastreia o clique no botão do WhatsApp
+    trackWhatsAppButtonClick('action_buttons');
   };
 
   return (
@@ -55,6 +63,7 @@ export default function ActionButtons({
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={handleWhatsAppClick}
             className={`
               flex items-center justify-center gap-3
               bg-brand-grey text-text-dark font-bold py-4 px-6 rounded-lg

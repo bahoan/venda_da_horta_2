@@ -1,5 +1,6 @@
 import { useState, useRef } from "react";
 import { saveLead } from "../../utils/supabaseClient";
+import { trackHortmartRedirect } from "../../utils/gtm";
 
 export default function LeadModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -129,6 +130,13 @@ export default function LeadModal({ isOpen, onClose }) {
           setIsSubmitting(false);
           return;
         }
+        
+        // Rastrear o clique no botão que redireciona para o Hortmart
+        trackHortmartRedirect({
+          name: formData.nome,
+          email: formData.email,
+          whatsapp: formData.whatsapp
+        });
         
         // URL base do Hotmart
         const baseUrl = 'https://pay.hotmart.com/U80022774F?bid=1740851051324';

@@ -8,6 +8,8 @@ import './index.css'
 // Removida a importação da versão
 
 // Removido o log da versão
+// Inicializa o dataLayer para o Google Tag Manager
+window.dataLayer = window.dataLayer || [];
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
