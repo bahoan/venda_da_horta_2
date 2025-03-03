@@ -1,8 +1,11 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { Heading2, Heading3, Paragraph, SmallText, Subtitle } from '../ui/typography/Typography';
+import { spacingClasses, textClasses } from '../../styles/utils';
 
 const FAQSection = () => {
+  const { elementSpacing, sectionSpacing } = spacingClasses;
   const faqs = [
     {
       question: "Funciona para quem nunca vendeu hortaliças pela internet?",
@@ -41,18 +44,18 @@ const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(2); // Terceira pergunta aberta por padrão
 
   return (
-    <section className="w-full py-16 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <section className="w-full py-8 bg-gray-50 mobile-padding">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className={`text-center ${elementSpacing}`}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            FAQ - <span className="text-[#07AA1D]">Perguntas frequentes</span>
-          </h2>
-          <p className="text-gray-600 text-lg">Sobre o produto</p>
+          <Heading2>
+            FAQ - <span className="text-brand-green">Perguntas frequentes</span>
+          </Heading2>
+          <SmallText className="text-lg">Sobre o produto</SmallText>
         </motion.div>
 
         <div className="max-w-3xl mx-auto">
@@ -71,7 +74,7 @@ const FAQSection = () => {
                   openIndex === index ? 'rounded-t-lg' : 'rounded-lg'
                 }`}
               >
-                <span className="font-medium text-lg">{faq.question}</span>
+                <Subtitle as="span" className="font-medium text-lg">{faq.question}</Subtitle>
                 <ChevronDown
                   className={`w-5 h-5 transform transition-transform ${
                     openIndex === index ? 'rotate-180' : ''
@@ -86,9 +89,9 @@ const FAQSection = () => {
                   exit={{ opacity: 0, height: 0 }}
                   className="px-4 pb-4"
                 >
-                  <p className="text-gray-600 whitespace-pre-line">
+                  <Paragraph className="whitespace-pre-line">
                     {faq.answer}
-                  </p>
+                  </Paragraph>
                 </motion.div>
               )}
             </motion.div>

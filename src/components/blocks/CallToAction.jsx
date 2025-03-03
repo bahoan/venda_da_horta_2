@@ -1,5 +1,12 @@
 import { motion } from 'framer-motion';
 import { Clock, Smartphone, Video, Users, Shield } from 'lucide-react';
+import { 
+  Heading2, 
+  Subtitle, 
+  Paragraph,
+  SmallText
+} from '../ui';
+import { spacingClasses } from '../../styles/utils';
 
 const features = [
   {
@@ -30,9 +37,11 @@ const features = [
 ];
 
 export default function CallToAction() {
+  const { elementSpacing } = spacingClasses;
+  
   return (
-    <section className="min-h-screen flex items-center bg-gray-50">
-      <div className="container py-8">
+    <section className="min-h-screen flex items-center bg-gray-50 mobile-padding">
+      <div className="max-w-4xl mx-auto py-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -40,10 +49,6 @@ export default function CallToAction() {
           viewport={{ once: true }}
           className="text-center max-w-4xl mx-auto"
         >
-          <h2 className="text-xl md:text-2xl text-gray-800 font-medium mb-8 leading-relaxed">
-            Se você quer vender mais de R$2.000 por dia de entrega, toda semana, com constância e crescimento, clique no botão abaixo agora
-          </h2>
-
           <div className="grid gap-8">
             {features.map((feature, index) => (
               <motion.div
@@ -58,10 +63,10 @@ export default function CallToAction() {
                   <feature.icon className="w-6 h-6 text-brand-green" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold mb-1">{feature.title}</h3>
-                  <p className="text-base sm:text-lg md:text-lg text-gray-600">
+                  <Subtitle className="mb-1">{feature.title}</Subtitle>
+                  <Paragraph>
                     {feature.description}
-                  </p>
+                  </Paragraph>
                 </div>
               </motion.div>
             ))}

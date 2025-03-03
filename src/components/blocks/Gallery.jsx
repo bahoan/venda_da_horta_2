@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { OptimizedImage } from '../ui';
+import { OptimizedImage, HighlightText } from '../ui';
+import { spacingClasses } from '../../styles/utils';
 
 const images = [
   {
@@ -35,22 +36,22 @@ const images = [
 ];
 
 export default function Gallery() {
+  const { elementSpacing } = spacingClasses;
+  
   return (
-    <section className="bg-white py-16">
-      <div className="container">
+    <section className="w-full py-8 bg-white mobile-padding">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className={`text-center ${elementSpacing}`}
         >
-          <h2 className="text-xl md:text-2xl font-bold mb-8">
-            Quem aplica o método Vendas DaHorta,{' '}
-            <span className="text-brand-green">
-              lota o carro e a moto de entregas toda semana
-            </span>
-          </h2>
+          <HighlightText>
+            Quem aplica o método Vendas DaHorta,<br />
+            <span className="text-brand-green">lota o carro e a moto de entregas toda semana</span>
+          </HighlightText>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

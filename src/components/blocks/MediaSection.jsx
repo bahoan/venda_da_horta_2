@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion';
+import { Heading2, Heading3, Paragraph, HighlightText, SmallText } from '../ui/typography/Typography';
+import { spacingClasses, textClasses } from '../../styles/utils';
 
 const MediaSection = () => {
+  const { elementSpacing, sectionSpacing } = spacingClasses;
   const images = [
     {
       url: "https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-94e22ec2-f1b7-49a5-99e6-b00949811d48",
@@ -21,17 +24,17 @@ const MediaSection = () => {
   ];
 
   return (
-    <section className="pt-8 pb-24 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="w-full py-4 bg-white mobile-padding">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className={`text-center ${elementSpacing}`}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
-            João Mariano <span className="text-[#07AA1D]">na mídia</span>
-          </h2>
+          <Heading2>
+            João Mariano <span className="text-brand-green">na mídia</span>
+          </Heading2>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
@@ -73,23 +76,23 @@ const MediaSection = () => {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-4"
+              className={`space-y-4 ${elementSpacing}`}
             >
-              <h2 className="text-3xl md:text-4xl font-bold">
-                Quem é <span className="text-[#07AA1D]">João Mariano</span>?
-              </h2>
+              <Heading2>
+                Quem é <span className="text-brand-green">João Mariano</span>?
+              </Heading2>
               
-              <p className="text-gray-700">
+              <Paragraph>
                 João Mariano é pioneiro e especialista em venda de produtos da horta e da roça pela internet no Brasil. <span className="font-semibold">Criador do Método Vendas DaHorta</span>, ele já ajudou dezenas de pessoas a alcançarem resultados expressivos, mesmo começando do zero.
-              </p>
+              </Paragraph>
 
-              <p className="text-gray-700">
+              <Paragraph>
                 João desenvolveu sua metodologia com base no seu próprio negócio de delivery de hortaliças, chamado Horta & DaRoça, aliando sua experiência como agricultor, estudos em agronomia e capacitações em marketing para criar um método acessível, prático e comprovado.
-              </p>
+              </Paragraph>
 
-              <p className="text-gray-700">
+              <Paragraph>
                 Ele acredita que, com as estratégias certas e o suporte adequado, qualquer pessoa pode transformar sua realidade, alcançar uma renda constante e proporcionar mais segurança e qualidade de vida para sua família, vendendo produtos pela internet de forma eficiente, profissional e com tranquilidade.
-              </p>
+              </Paragraph>
             </motion.div>
           </div>
         </div>

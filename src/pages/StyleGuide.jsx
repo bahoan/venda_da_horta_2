@@ -45,42 +45,58 @@ export default function StyleGuide() {
         
         <div className="grid gap-6">
           <div>
-            <Heading3>Título Principal (H1)</Heading3>
+            <div className="bg-gray-100 p-2 rounded-md mb-2 inline-block">
+              <span className="text-sm font-semibold text-gray-700">Título Principal (H1) - <code>Heading1</code></span>
+            </div>
             <Heading1>Transforme sua horta em um negócio lucrativo</Heading1>
           </div>
           
           <div>
-            <Heading3>Título Secundário (H2)</Heading3>
+            <div className="bg-gray-100 p-2 rounded-md mb-2 inline-block">
+              <span className="text-sm font-semibold text-gray-700">Título Secundário (H2) - <code>Heading2</code></span>
+            </div>
             <Heading2>Depoimentos que vão te inspirar</Heading2>
           </div>
           
           <div>
-            <Heading3>Título Terciário (H3)</Heading3>
+            <div className="bg-gray-100 p-2 rounded-md mb-2 inline-block">
+              <span className="text-sm font-semibold text-gray-700">Título Terciário (H3) - <code>Heading3</code></span>
+            </div>
             <Heading3>Como funciona o método</Heading3>
           </div>
           
           <div>
-            <Heading3>Subtítulo (H4)</Heading3>
+            <div className="bg-gray-100 p-2 rounded-md mb-2 inline-block">
+              <span className="text-sm font-semibold text-gray-700">Subtítulo (H4) - <code>Subtitle</code></span>
+            </div>
             <Subtitle>Etapa 1: Definição de estratégia</Subtitle>
           </div>
           
           <div>
-            <Heading3>Texto de Destaque</Heading3>
+            <div className="bg-gray-100 p-2 rounded-md mb-2 block w-full">
+              <span className="text-sm font-semibold text-gray-700">Texto de Destaque - <code>HighlightText</code></span>
+            </div>
             <HighlightText>Qualquer pessoa com acesso à internet <span className="text-brand-green">pode vender hortaliças e produtos da roça</span> pelo celular</HighlightText>
           </div>
           
           <div>
-            <Heading3>Texto Regular</Heading3>
+            <div className="bg-gray-100 p-2 rounded-md mb-2 inline-block">
+              <span className="text-sm font-semibold text-gray-700">Texto Regular - <code>Paragraph</code></span>
+            </div>
             <Paragraph>Nosso método exclusivo ajuda produtores de horta a encontrar clientes ideais, criar ofertas irresistíveis e estabelecer um sistema de vendas recorrentes que funciona mesmo sem experiência prévia em marketing.</Paragraph>
           </div>
           
           <div>
-            <Heading3>Texto Pequeno</Heading3>
+            <div className="bg-gray-100 p-2 rounded-md mb-2 block w-full">
+              <span className="text-sm font-semibold text-gray-700">Texto Pequeno - <code>SmallText</code></span>
+            </div>
             <SmallText>*Resultados podem variar de acordo com a dedicação e implementação do método.</SmallText>
           </div>
           
           <div>
-            <Heading3>Citação</Heading3>
+            <div className="bg-gray-100 p-2 rounded-md mb-2 inline-block">
+              <span className="text-sm font-semibold text-gray-700">Citação - <code>Quote</code></span>
+            </div>
             <Quote>Desde que comecei a usar o método Vendas da Horta, minhas vendas aumentaram 300% e agora tenho uma lista de espera de clientes.</Quote>
           </div>
         </div>
@@ -417,7 +433,7 @@ export default function StyleGuide() {
           
           <div className="mt-8 p-4 bg-gray-100 rounded-lg">
             <h3 className="text-lg font-semibold mb-4">Comportamento Responsivo dos Botões</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div>
                 <h4 className="font-medium mb-2">Desktop (Hover)</h4>
                 <p className="text-sm text-gray-600 mb-3">

@@ -3,8 +3,9 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { motion } from 'framer-motion';
-import { LazyVideo, CTAButton, WhatsAppButton } from '../ui';
+import { LazyVideo, ActionButtons, HighlightText, Subtitle, Paragraph } from '../ui';
 import { fetchVideoTestimonials } from '../../utils/supabaseClient';
+import { spacingClasses } from '../../styles/utils';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -320,12 +321,12 @@ const VideoSlider = () => {
           </div>
         </div>
         <div className="text-gray-800 p-4">
-          <h3 className="text-lg font-semibold text-brand-green mb-2">
+          <Subtitle className="text-brand-green mb-2">
             {video.title}
-          </h3>
-          <p className="text-sm text-gray-600 line-clamp-4 hover:line-clamp-none transition-all duration-300">
+          </Subtitle>
+          <Paragraph className="text-sm line-clamp-4 hover:line-clamp-none transition-all duration-300">
             {video.description}
-          </p>
+          </Paragraph>
         </div>
       </div>
     );
@@ -334,12 +335,12 @@ const VideoSlider = () => {
   // Renderiza um loader enquanto os dados estão sendo carregados
   if (loading) {
     return (
-      <section className="bg-[#F9FAFB] py-16">
-        <div className="container">
+      <section className="bg-[#F9FAFB] py-8">
+        <div className="max-w-4xl mx-auto mobile-padding">
           <div className="text-center mb-12">
-            <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-8">
+            <HighlightText>
               Carregando depoimentos...
-            </h2>
+            </HighlightText>
           </div>
           <div className="flex justify-center">
             <div className="animate-pulse flex space-x-4">
@@ -352,20 +353,24 @@ const VideoSlider = () => {
   }
 
   return (
-    <section className="bg-gray-50 py-16">
-      <div className="container mx-auto">
+    <section className="bg-gray-50 py-8">
+      <div className="max-w-4xl mx-auto mobile-padding">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className={`text-center ${spacingClasses.elementSpacing}`}
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Depoimentos que vão te inspirar
-          </h2>
+          <HighlightText>
+            Eu duvido você ver essas histórias e não<br />
+            querer o mesmo para <span className="text-brand-green">suas vendas e sua vida</span>
+          </HighlightText>
         </motion.div>
+      </div>
 
+      {/* Área do carrossel com margem infinita */}
+      <div className="w-full overflow-hidden">
         <Swiper
           ref={swiperRef}
           modules={[Navigation, Pagination, Autoplay]}
@@ -425,45 +430,25 @@ const VideoSlider = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
 
+      <div className="max-w-4xl mx-auto mobile-padding">
         {/* Quote and CTA Section */}
-        <div className="container mx-auto px-4 pb-8">
-          {/* Quote */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16 relative max-w-3xl mx-auto"
-          >
-            <div className="bg-white p-8 rounded-2xl shadow-sm relative">
-              {/* Triângulo do balão */}
-              <div className="absolute w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-t-[20px] border-white -bottom-5 left-1/2 transform -translate-x-1/2"></div>
-              
-              <div className="flex items-start mb-6">
-                <span className="text-green-500 text-6xl font-serif leading-none mr-4">"</span>
-                <blockquote className="text-gray-700 text-2xl font-light pt-2">
-                  Eles poderiam nem estar mais trabalhando com horta se não tivessem clicado no botão abaixo
-                </blockquote>
-                <span className="text-green-500 text-6xl font-serif leading-none self-end ml-4">"</span>
-              </div>
-            </div>
-          </motion.div>
+        <div className="max-w-4xl mx-auto pb-8">
+          {/* Quote - Removido pois agora está no componente ActionButtons */}
 
-          {/* CTA Buttons */}
+          {/* ActionButtons */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col gap-4 max-w-xl mx-auto mb-8"
+            className="flex flex-col gap-4 w-full max-w-3xl mx-auto mb-8"
           >
-            <div className="w-full max-w-[400px] mx-auto">
-              <CTAButton variant="green" fullWidth className="mb-4" />
-            </div>
-            <div className="w-full max-w-[400px] mx-auto">
-              <WhatsAppButton fullWidth />
-            </div>
+            <ActionButtons 
+              fullWidth 
+              topText="Eles poderiam nem estar mais trabalhando com horta se não tivessem clicado no botão abaixo"
+            />
           </motion.div>
         </div>
 

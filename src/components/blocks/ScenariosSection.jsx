@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { SproutIcon, TrendingUpIcon, VideoIcon } from 'lucide-react';
-import { CTAButton, WhatsAppButton } from '../ui';
+import { ActionButtons } from '../ui';
+import { Heading2, Heading3, Paragraph, HighlightText, Subtitle, Quote, SmallText } from '../ui/typography/Typography';
+import { spacingClasses, textClasses } from '../../styles/utils';
 
 const ScenariosSection = () => {
   const [isGifLoaded, setIsGifLoaded] = useState(false);
+  const { elementSpacing, sectionSpacing, smallSpacing } = spacingClasses;
 
   // Pré-carregamento do GIF
   useEffect(() => {
@@ -27,10 +30,10 @@ const ScenariosSection = () => {
   ];
 
   return (
-    <section className="w-full py-16">
-      <div className="container mx-auto px-4">
+    <section className={`py-8 md:py-12 bg-white ${sectionSpacing} mobile-padding`}>
+      <div className="max-w-4xl mx-auto">
         {/* Cards de Cenários */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {scenarios.map((scenario, index) => (
             <motion.div
               key={index}
@@ -38,13 +41,15 @@ const ScenariosSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="bg-[#07AA1D] rounded-2xl p-6 text-white"
+              className="bg-brand-green rounded-2xl p-6 text-white"
             >
               <div className="flex items-start gap-4">
                 {scenario.icon}
                 <div>
-                  <h3 className="font-medium text-lg mb-4">{scenario.title}</h3>
-                  <p className="leading-relaxed">{scenario.content}</p>
+                  <div className={smallSpacing}>
+                    <Subtitle className="text-white">{scenario.title}</Subtitle>
+                  </div>
+                  <Paragraph className="leading-relaxed text-white">{scenario.content}</Paragraph>
                 </div>
               </div>
             </motion.div>
@@ -57,23 +62,25 @@ const ScenariosSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.4 }}
-          className="mt-20 text-center"
+          className={`mt-20 text-center ${sectionSpacing}`}
         >
           {/* Logo */}
           <img 
             src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-c8a0c1f7-bcbd-4760-abf2-cd4079b628d2"
             alt="Logo AppDaHorta"
-            className="h-16 mx-auto mb-6"
+            className={`h-16 mx-auto ${elementSpacing}`}
           />
 
           {/* Texto */}
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-12">
-            Ao comprar o curso Vendas DaHorta, você ganha 360 dias de acesso ao ao plano básico AppDaHorta, 
-            uma ferramenta completa para organizar e automatizar suas vendas.
-          </p>
+          <div className={elementSpacing}>
+            <Paragraph className="text-lg max-w-3xl mx-auto">
+              Ao comprar o curso Vendas DaHorta, você ganha 360 dias de acesso ao ao plano básico AppDaHorta, 
+              uma ferramenta completa para organizar e automatizar suas vendas.
+            </Paragraph>
+          </div>
 
           {/* GIF com loading placeholder */}
-          <div className="max-w-[320px] mx-auto">
+          <div className={`max-w-[320px] mx-auto ${elementSpacing}`}>
             <div className={`aspect-[9/16] bg-gray-100 rounded-[2rem] overflow-hidden ${isGifLoaded ? 'hidden' : 'block'}`}>
               <div className="animate-pulse w-full h-full" />
             </div>
@@ -95,10 +102,10 @@ const ScenariosSection = () => {
               transition={{ delay: 0.6 }}
               className="bg-white/50 backdrop-blur-sm border border-gray-100 rounded-2xl p-6 shadow-sm"
             >
-              <p className="text-gray-700 leading-relaxed">
+              <Paragraph className="leading-relaxed">
                 Com ele, você pode criar cardápios digitais para seus clientes fazerem pedidos sozinhos, 
                 enviar notinhas automáticas, acompanhar relatórios de vendas e gerenciar tudo em um só lugar.
-              </p>
+              </Paragraph>
             </motion.div>
 
             <motion.div
@@ -108,11 +115,11 @@ const ScenariosSection = () => {
               transition={{ delay: 0.8 }}
               className="bg-white/50 backdrop-blur-sm border border-gray-100 rounded-2xl p-6 shadow-sm"
             >
-              <p className="text-gray-700 leading-relaxed">
+              <Paragraph className="leading-relaxed">
                 Além disso, conte com o disparador de mensagens em massa para compartilhar seu cardápio 
                 e ofertas com todos os contados do seu WhatsApp de forma rápida e prática, otimizando 
                 seu tempo e aumentando as vendas.
-              </p>
+              </Paragraph>
             </motion.div>
           </div>
 
@@ -122,24 +129,30 @@ const ScenariosSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="mt-24 max-w-4xl mx-auto text-center"
+            className={`mt-24 max-w-4xl mx-auto text-center ${sectionSpacing}`}
           >
-            <div className="flex justify-center items-center gap-3 mb-6">
-              <VideoIcon className="w-8 h-8 text-[#07AA1D]" />
-              <h2 className="text-2xl md:text-3xl font-bold">
-                Encontros por <span className="text-[#07AA1D]">Vídeo Chamada</span>
-              </h2>
+            <div className={`${elementSpacing} text-center`}>
+              <div className="inline-flex flex-col sm:flex-row items-center gap-2 sm:gap-3 justify-center">
+                <VideoIcon className="w-6 h-6 sm:w-8 sm:h-8 text-brand-green" />
+                <HighlightText className="text-xl sm:text-2xl mt-1">
+                  Encontros por <span className="text-brand-green block sm:inline">Vídeo Chamada</span>
+                </HighlightText>
+              </div>
             </div>
 
-            <p className="text-gray-700 text-lg leading-relaxed max-w-3xl mx-auto mb-12">
-              Duas vezes por mês, realizamos encontros ao vivo por videochamada com os alunos do Vendas DaHorta. 
-              Esses momentos são ideais para tirar dúvidas, aprender novas estratégias e receber dicas práticas 
-              para melhorar suas vendas, criar ofertas e alcançar resultados ainda melhores.
-            </p>
+            <div className={elementSpacing}>
+              <Paragraph className="text-lg leading-relaxed max-w-3xl mx-auto">
+                Duas vezes por mês, realizamos encontros ao vivo por videochamada com os alunos do Vendas DaHorta. 
+                Esses momentos são ideais para tirar dúvidas, aprender novas estratégias e receber dicas práticas 
+                para melhorar suas vendas, criar ofertas e alcançar resultados ainda melhores.
+              </Paragraph>
+            </div>
 
-            <p className="text-xl font-medium text-[#07AA1D] mb-12">
-              Dentro do Vendas DaHorta você nunca estará só.
-            </p>
+            <div className={elementSpacing}>
+              <Subtitle className="text-brand-green">
+                Dentro do Vendas DaHorta você nunca estará só.
+              </Subtitle>
+            </div>
 
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -156,21 +169,15 @@ const ScenariosSection = () => {
                 />
               </div>
 
-              <div className="px-6 py-8 flex flex-col items-center gap-6">
-                {/* Balão de diálogo */}
-                <div className="bg-white rounded-[32px] p-8 relative max-w-[800px] mx-auto shadow-lg mb-4">
-                  <p className="text-[28px] leading-[34px] text-center relative z-10">
-                    Até quando você vai esperar para parar de sofrer por não conseguir vender todos os produtos da horta?
-                  </p>
-                  <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-white rotate-45 shadow-lg"></div>
-                </div>
-
-                <div className="w-full max-w-[400px]">
-                  <CTAButton variant="green" fullWidth className="mb-4" />
-                </div>
-
-                <div className="w-full max-w-[400px]">
-                  <WhatsAppButton fullWidth />
+              <div className="px-0 sm:px-6 py-8 flex flex-col items-center gap-6">
+                {/* ActionButtons com a frase */}
+                <div className="w-full max-w-3xl mx-auto">
+                  <ActionButtons 
+                    fullWidth 
+                    showOnlyMainButton={false}
+                    topText="Até quando você vai esperar para parar de sofrer por não conseguir vender todos os produtos da horta?"
+                    className="px-0"
+                  />
                 </div>
               </div>
             </motion.div>

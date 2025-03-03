@@ -21,7 +21,8 @@ export default function LeadModal({ isOpen, onClose }) {
       case 'email':
         return !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? 'Email inválido' : '';
       case 'whatsapp':
-        return !/^\(\d{2}\)\s\d{5}-\d{4}$/.test(value) ? 'WhatsApp inválido' : '';
+        // Aceita tanto formato de celular (XX) XXXXX-XXXX quanto fixo (XX) XXXX-XXXX
+        return !/^\(\d{2}\)\s\d{4,5}-\d{4}$/.test(value) ? 'WhatsApp inválido' : '';
       default:
         return '';
     }
@@ -34,11 +35,24 @@ export default function LeadModal({ isOpen, onClose }) {
     // Se for WhatsApp, formata o número
     let formattedValue = value;
     if (name === 'whatsapp') {
-      formattedValue = value
-        .replace(/\D/g, '')
-        .replace(/^(\d{2})(\d)/, '($1) $2')
-        .replace(/(\d{5})(\d)/, '$1-$2')
-        .slice(0, 15);
+      const digits = value.replace(/\D/g, '');
+      
+      // Formata de acordo com a quantidade de dígitos (telefone fixo ou celular)
+      if (digits.length <= 10) {
+        // Formato para telefone fixo: (XX) XXXX-XXXX
+        formattedValue = digits
+          .replace(/\D/g, '')
+          .replace(/^(\d{2})(\d)/, '($1) $2')
+          .replace(/(\d{4})(\d)/, '$1-$2')
+          .slice(0, 14);
+      } else {
+        // Formato para celular: (XX) XXXXX-XXXX
+        formattedValue = digits
+          .replace(/\D/g, '')
+          .replace(/^(\d{2})(\d)/, '($1) $2')
+          .replace(/(\d{5})(\d)/, '$1-$2')
+          .slice(0, 15);
+      }
     }
 
     setFormData(prev => ({
@@ -159,7 +173,7 @@ export default function LeadModal({ isOpen, onClose }) {
     >
       <div 
         ref={modalRef}
-        className="bg-white rounded-lg p-6 w-full max-w-md mx-auto relative"
+        className="bg-white rounded-lg p-6 w-full max-w-md mx-4 relative"
       >
         <div className="flex justify-between items-center mb-6 pr-2">
           <h2 className="text-xl font-bold text-green-600 pr-8">
@@ -200,7 +214,7 @@ export default function LeadModal({ isOpen, onClose }) {
                 onBlur={handleBlur}
                 name="nome"
                 placeholder="Seu nome completo"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500"
               />
               {touchedFields.nome && errors.nome && (
                 <p className="mt-1 text-sm text-red-500">{errors.nome}</p>
@@ -218,7 +232,7 @@ export default function LeadModal({ isOpen, onClose }) {
                 onBlur={handleBlur}
                 name="email"
                 placeholder="seu@email.com"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500"
               />
               {touchedFields.email && errors.email && (
                 <p className="mt-1 text-sm text-red-500">{errors.email}</p>
@@ -235,8 +249,8 @@ export default function LeadModal({ isOpen, onClose }) {
                 onChange={handleChange}
                 onBlur={handleBlur}
                 name="whatsapp"
-                placeholder="(11) 91234-5678"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                placeholder="(XX) XXXX-XXXX"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500"
               />
               {touchedFields.whatsapp && errors.whatsapp && (
                 <p className="mt-1 text-sm text-red-500">{errors.whatsapp}</p>

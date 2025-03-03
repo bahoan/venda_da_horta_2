@@ -162,15 +162,18 @@ export const selectorClasses = {
 };
 
 /**
- * Classes para espaçamentos
+ * Classes para espaçamentos padrão
+ * Usadas para manter consistência de espaçamento em todo o projeto
  */
 export const spacingClasses = {
-  // Margens entre seções
-  sectionGap: 'mb-8 md:mb-16',
-  // Margens entre componentes
-  componentGap: 'mb-4 md:mb-8',
-  // Margens entre elementos
-  elementGap: 'mb-2 md:mb-4',
+  // Espaçamento padrão entre elementos
+  elementSpacing: 'mb-5 md:mb-6',
+  // Espaçamento menor para itens de lista ou elementos menores
+  smallSpacing: 'mb-3 md:mb-4',
+  // Espaçamento maior para seções
+  sectionSpacing: 'mb-5 md:mb-8',
+  // Espaçamento horizontal padrão
+  horizontalSpacing: 'mx-4 md:mx-6',
 };
 
 /**
@@ -178,14 +181,14 @@ export const spacingClasses = {
  */
 export const textClasses = {
   // Títulos
-  heading1: 'text-4xl md:text-5xl font-bold text-text-dark mb-4',
-  heading2: 'text-3xl md:text-4xl font-bold text-text-dark mb-3',
-  heading3: 'text-2xl font-bold text-text-dark mb-2',
-  subtitle: 'text-xl font-semibold text-text-dark mb-2',
+  heading1: 'text-4xl md:text-5xl font-bold text-text-dark mb-4 w-full',
+  heading2: 'text-3xl md:text-4xl font-bold text-text-dark mb-3 w-full',
+  heading3: 'text-2xl font-bold text-text-dark mb-2 w-full',
+  subtitle: 'text-xl font-semibold text-text-dark mb-2 w-full',
   
   // Parágrafos
-  paragraph: 'text-base text-text-medium mb-4',
-  highlight: 'text-2xl md:text-3xl font-black text-center text-text-dark mb-4',
-  quote: 'italic text-lg border-l-4 border-brand-green pl-4 py-2 text-text-medium',
-  small: 'text-sm text-text-light',
+  paragraph: 'text-base text-text-medium mb-4 w-full',
+  highlight: 'text-2xl md:text-3xl font-black text-center text-text-dark mb-4 w-full',
+  quote: 'italic text-lg border-l-4 border-brand-green pl-4 py-2 text-text-medium w-full',
+  small: 'text-sm text-text-light w-full',
 };

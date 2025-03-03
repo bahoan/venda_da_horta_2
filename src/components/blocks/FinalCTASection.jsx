@@ -1,30 +1,52 @@
 import { motion } from 'framer-motion';
-import { CTAButton, WhatsAppButton } from '../ui';
+import { 
+  ActionButtons,
+  Heading2,
+  Paragraph,
+  HighlightText
+} from '../ui';
+import { spacingClasses } from '../../styles/utils';
 
-const FinalCTASection = () => {
+export default function FinalCTASection() {
+  const { elementSpacing, sectionSpacing } = spacingClasses;
+
   return (
-    <section className="w-full py-16">
-      <div className="container mx-auto px-4">
-        <div className="max-w-3xl mx-auto flex flex-col items-center gap-6">
-          {/* Balão de diálogo */}
-          <div className="bg-white rounded-[32px] p-8 relative max-w-[800px] mx-auto shadow-lg mb-4">
-            <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-white rotate-45 shadow-lg"></div>
-            <p className="text-[28px] leading-[34px] text-center relative z-10">
-              "Junte-se a comunidade do Vendas DaHorta"
-            </p>
-          </div>
+    <section className={`py-8 md:py-12 bg-gray-50 ${sectionSpacing} mobile-padding`}>
+      <div className="max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className={`text-center ${elementSpacing}`}
+        >
+          <Heading2>
+            Chegou a <span className="text-brand-green">sua hora</span>
+          </Heading2>
+          
+          <Paragraph className="max-w-3xl mx-auto">
+            Não perca mais tempo tentando vender seus produtos sem uma estratégia eficiente. 
+            O Método Vendas DaHorta já ajudou dezenas de pessoas a transformarem seus negócios.
+          </Paragraph>
+        </motion.div>
 
-          <div className="w-full max-w-[400px]">
-            <CTAButton variant="green" fullWidth className="mb-4" />
-          </div>
-
-          <div className="w-full max-w-[400px]">
-            <WhatsAppButton fullWidth />
-          </div>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <HighlightText className="mb-8">
+            Você será o próximo caso de sucesso?
+          </HighlightText>
+          
+          <ActionButtons 
+            topText="Junte-se a comunidade do Vendas DaHorta"
+            fullWidth 
+            showOnlyMainButton={false}
+            className="px-0"
+          />
+        </motion.div>
       </div>
     </section>
   );
-};
-
-export default FinalCTASection;
+}

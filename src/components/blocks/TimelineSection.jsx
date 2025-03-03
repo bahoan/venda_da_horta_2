@@ -1,6 +1,10 @@
 import { motion } from 'framer-motion';
+import { Heading2, Heading3, Paragraph, HighlightText, Subtitle } from '../ui/typography/Typography';
+import { spacingClasses } from '../../styles/utils';
 
 const TimelineSection = () => {
+  const { elementSpacing, sectionSpacing } = spacingClasses;
+  
   const timelineItems = [
     {
       phase: 'FASE 1:',
@@ -43,10 +47,10 @@ const TimelineSection = () => {
     },
     {
       phase: 'FASE 4:',
-      title: 'CARRO CHEIO DA HORTA',
+      title: 'ENTREGA ORGANIZADA',
       description: [
-        'Nessa fase, você já domina como atrair novos clientes com os Imãs de Clientes da Horta e como enviar Ofertas Caipira em massa de forma eficiente.',
-        'Agora, com alguns cliques no celular, você consegue lotar seu carro (ou moto) de pedidos e alcançar vendas acima de R$2.000 por dia de entrega, toda semana, com crescimento constante e previsível.'
+        'Nessa fase, você já tem um fluxo constante de vendas e precisa organizar as entregas de forma eficiente. Você aprenderá a criar rotas otimizadas, gerenciar pedidos e garantir que tudo seja entregue no prazo.',
+        'Com esse sistema, você consegue atender mais clientes em menos tempo, aumentando sua capacidade de vendas e reduzindo custos.'
       ],
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -82,25 +86,28 @@ const TimelineSection = () => {
   ];
 
   return (
-    <section className="w-full py-16 bg-white">
-      <div className="container mx-auto px-4">
+    <section className="w-full py-8 bg-white">
+      <div className="max-w-4xl mx-auto mobile-padding">
         {/* Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className={`text-center ${sectionSpacing}`}
         >
-          <h2 className="text-2xl md:text-3xl font-bold mb-4">
-            Para ficar <span className="text-green-500">mais fácil de aplicar</span>, o Método Vendas DaHorta, dividimos as etapas em <span className="text-green-500">fases simples e práticas</span>
-          </h2>
+          <div className={elementSpacing}>
+            <HighlightText>
+              Para ficar <span className="text-brand-green">mais fácil de aplicar</span>, o Método Vendas DaHorta,<br />
+              dividimos as etapas em <span className="text-brand-green">fases simples e práticas</span>
+            </HighlightText>
+          </div>
         </motion.div>
 
         {/* Timeline */}
         <div className="relative">
           {/* Central Line */}
-          <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 h-[85%] w-1 bg-green-500"/>
+          <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 h-[85%] w-1 bg-brand-green"/>
 
           {/* Timeline Items */}
           <div className="relative">
@@ -121,16 +128,16 @@ const TimelineSection = () => {
                 }`}>
                   <div className="bg-gray-50 rounded-xl overflow-hidden shadow-sm">
                     {/* Header */}
-                    <div className="bg-orange-400 text-white px-6 py-3 w-full">
+                    <div className="bg-brand-orange text-white px-6 py-3 w-full">
                       <div className="font-semibold">{item.phase}</div>
-                      <h3 className="font-bold text-lg">{item.title}</h3>
+                      <Subtitle className="text-white">{item.title}</Subtitle>
                     </div>
                     {/* Content */}
                     <div className="p-6">
                       {item.description.map((paragraph, pIndex) => (
-                        <p key={pIndex} className="text-gray-700 mb-3 last:mb-0">
+                        <Paragraph key={pIndex} className={pIndex < item.description.length - 1 ? elementSpacing : ''}>
                           {paragraph}
-                        </p>
+                        </Paragraph>
                       ))}
                     </div>
                   </div>
@@ -138,7 +145,7 @@ const TimelineSection = () => {
 
                 {/* Icon */}
                 <div className={`absolute left-8 md:static md:w-[8%] flex justify-center transform -translate-x-1/2 md:transform-none`}>
-                  <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white relative z-10">
+                  <div className="w-12 h-12 bg-brand-green rounded-full flex items-center justify-center text-white relative z-10">
                     {item.icon}
                   </div>
                 </div>
@@ -157,16 +164,16 @@ const TimelineSection = () => {
               className="flex justify-center mt-24 relative"
             >
               <div className="w-[85%] md:w-[60%] bg-gray-50 rounded-xl overflow-hidden shadow-sm">
-                <div className="bg-green-500 text-white px-6 py-3 w-full text-center">
-                  <h3 className="text-2xl font-bold">
+                <div className="bg-brand-green text-white px-6 py-3 w-full text-center">
+                  <Heading3 className="text-white">
                     Conclusão do Método
-                  </h3>
+                  </Heading3>
                 </div>
                 <div className="p-8">
-                  <p className="text-lg text-gray-700">
+                  <Paragraph className="text-lg">
                     Agora, você sabe exatamente como aumentar suas vendas, expandir os dias e regiões de entrega sempre que quiser. 
                     Você tem todas as ferramentas para alcançar faturamentos acima de R$15.000 por mês.
-                  </p>
+                  </Paragraph>
                 </div>
               </div>
             </motion.div>
