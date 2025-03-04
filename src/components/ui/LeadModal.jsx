@@ -131,6 +131,32 @@ export default function LeadModal({ isOpen, onClose }) {
           return;
         }
         
+        // Verificar se temos o ID do lead
+        if (result.leadId) {
+          console.log('Lead ID:', result.leadId);
+          
+          // Enviar o ID do lead para o webhook
+          try {
+            const webhookResponse = await fetch('https://vendadahorta.organeasy.app/webhook/ad8fb05f-3ded-4232-a900-03a30044aa95', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                id_lead: result.leadId
+              })
+            });
+            
+            if (webhookResponse.ok) {
+              console.log('Webhook enviado com sucesso');
+            } else {
+              console.error('Erro ao enviar webhook:', await webhookResponse.text());
+            }
+          } catch (webhookError) {
+            console.error('Erro ao enviar webhook:', webhookError);
+          }
+        }
+        
         // Rastrear o clique no botão que redireciona para o Hortmart
         trackHortmartRedirect({
           name: formData.nome,
@@ -153,10 +179,11 @@ export default function LeadModal({ isOpen, onClose }) {
         
         console.log('Lead salvo no Supabase. Redirecionando para:', redirectUrl);
         
-        // Abrir o link em uma nova aba
-        window.open(redirectUrl, '_blank');
+        // Redirecionar para o Hotmart na mesma página em vez de abrir em uma nova aba
+        window.location.href = redirectUrl;
         
-        // Fechar o modal após o redirecionamento
+        // Não é mais necessário fechar o modal, pois a página será redirecionada
+        // O código abaixo não será executado devido ao redirecionamento
         setTimeout(() => {
           onClose();
           setIsSubmitting(false);
