@@ -41,15 +41,15 @@ export default function Hero() {
             </div>
             
             <div className={elementSpacing}>
-              <Subtitle className="text-lg sm:text-xl">
+              <Paragraph className="text-lg sm:text-xl">
                 Descubra como vender mais de R$2.000 por dia de entrega da horta, toda semana, pelo WhatsApp
-              </Subtitle>
+              </Paragraph>
             </div>
             
             <div className={elementSpacing}>
-              <Heading3 className="text-xl sm:text-2xl">
+              <Subtitle className="text-xl sm:text-2xl">
                 Assista a aula de introdução gratuitamente e você vai aprender mais de 10 coisas:
-              </Heading3>
+              </Subtitle>
             </div>
           </div>
 

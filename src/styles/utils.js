@@ -183,12 +183,14 @@ export const textClasses = {
   // Títulos
   heading1: 'text-4xl md:text-5xl font-bold text-text-dark mb-4 w-full',
   heading2: 'text-3xl md:text-4xl font-bold text-text-dark mb-3 w-full',
-  heading3: 'text-2xl font-bold text-text-dark mb-2 w-full',
-  subtitle: 'text-xl font-semibold text-text-dark mb-2 w-full',
+  heading3: 'text-2xl md:text-x1 font-bold text-text-dark mb-2 w-full',
+  // subtitle: 'text-xl font-semibold text-text-dark mb-2 w-full',
+  subtitle: 'text-xl md:text-base font-semibold text-text-dark mb-2 w-full',
   
   // Parágrafos
-  paragraph: 'text-base text-text-medium mb-4 w-full',
-  highlight: 'text-2xl md:text-3xl font-black text-center text-text-dark mb-4 w-full',
+  paragraph: 'text-base text-text-medium mb-2 w-full',
+  // highlight: 'text-2xl md:text-3xl font-black text-center text-text-dark mb-4 w-full',
+  highlight: 'text-xl md:text-2xl font-black text-center text-text-dark mb-4 w-full',
   quote: 'italic text-lg border-l-4 border-brand-green pl-4 py-2 text-text-medium w-full',
   small: 'text-sm text-text-light w-full',
 };

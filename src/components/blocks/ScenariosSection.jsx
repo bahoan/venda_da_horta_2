@@ -9,10 +9,10 @@ const ScenariosSection = () => {
   const [isGifLoaded, setIsGifLoaded] = useState(false);
   const { elementSpacing, sectionSpacing, smallSpacing } = spacingClasses;
 
-  // Pré-carregamento do GIF
+  // Pré-carregamento do https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-0824192d-c12c-45f6-8efc-7b2135285408
   useEffect(() => {
     const gifImage = new Image();
-    gifImage.src = "https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-46834e53-fc1e-40b7-85ff-38c05f29684b";
+    gifImage.src = "https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-0824192d-c12c-45f6-8efc-7b2135285408";
     gifImage.onload = () => setIsGifLoaded(true);
   }, []);
 
@@ -41,7 +41,7 @@ const ScenariosSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
-              className="bg-brand-green rounded-2xl p-6 text-white"
+              className={`rounded-2xl p-6 text-white ${index === 0 ? 'bg-brand-green' : 'bg-brand-orange'}`}
             >
               <div className="flex items-start gap-4">
                 {scenario.icon}
@@ -85,7 +85,7 @@ const ScenariosSection = () => {
               <div className="animate-pulse w-full h-full" />
             </div>
             <img
-              src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-46834e53-fc1e-40b7-85ff-38c05f29684b"
+              src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-0824192d-c12c-45f6-8efc-7b2135285408"
               alt="Demonstração AppDaHorta"
               className={`w-full rounded-[2rem] transition-opacity duration-300 ${isGifLoaded ? 'opacity-100' : 'opacity-0'}`}
               style={{ aspectRatio: '9/16' }}

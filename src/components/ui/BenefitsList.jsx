@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
-import { SmallText } from './typography/Typography';
+import { Paragraph } from './typography/Typography';
 
 // Dividir os benefícios em duas colunas
 const leftColumnBenefits = [
@@ -45,12 +45,12 @@ const itemVariants = {
 const BenefitItem = ({ benefit }) => (
   <motion.div
     variants={itemVariants}
-    className="flex items-start gap-1.5 md:gap-2 mb-2 md:mb-3 w-full"
+    className="flex items-start gap-1.5 md:gap-1.5 mb-0 md:mb-0 w-full"
   >
     <div className="flex-shrink-0 w-3.5 h-3.5 md:w-4 md:h-4 rounded-full bg-brand-green flex items-center justify-center mt-0.5">
       <Check className="w-2.5 h-2.5 md:w-3 md:h-3 text-white stroke-[3]" />
     </div>
-    <SmallText className="text-left flex-1">{benefit}</SmallText>
+    <Paragraph className="text-left flex-1">{benefit}</Paragraph>
   </motion.div>
 );
 

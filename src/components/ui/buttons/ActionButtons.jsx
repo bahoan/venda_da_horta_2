@@ -33,10 +33,10 @@ export default function ActionButtons({
   };
 
   return (
-    <div className={`flex flex-col gap-3 w-full ${className}`}>
+    <div className={`flex flex-col gap-4 w-full ${className}`}>
       {/* Texto dinâmico acima dos botões */}
       {topText && (
-        <p className="text-lg font-light text-center italic mb-1 px-0">
+        <p className="text-lg font-light text-center italic mb-2 px-0">
           "{topText}"
         </p>
       )}
@@ -46,10 +46,11 @@ export default function ActionButtons({
         onClick={handleEnterClick}
         className={`
           bg-brand-green text-white font-bold py-4 px-6 rounded-lg
-          transition-all duration-300 shadow-md
+          transition-all duration-300 
           hover:md:bg-brand-green-dark hover:md:-translate-y-1 hover:md:shadow-lg
           active:scale-105 md:active:scale-100
           w-full text-xl
+          shadow-[0_4px_10px_rgba(0,0,0,0.6)]
         `}
         {...props}
       >
@@ -58,7 +59,7 @@ export default function ActionButtons({
       
       {/* Botão cinza - Tirar dúvidas via WhatsApp (condicional) */}
       {!showOnlyMainButton && (
-        <div className="flex flex-col items-center w-full">
+        <div className="flex flex-col items-center w-full mt-2">
           <a 
             href={whatsappUrl}
             target="_blank"
@@ -67,10 +68,11 @@ export default function ActionButtons({
             className={`
               flex items-center justify-center gap-3
               bg-brand-grey text-text-dark font-bold py-4 px-6 rounded-lg
-              transition-all duration-300 shadow-md
+              transition-all duration-300 
               hover:md:bg-brand-grey-dark hover:md:-translate-y-1 hover:md:shadow-lg
               active:scale-105 md:active:scale-100
               w-full text-lg
+              shadow-[0_4px_10px_rgba(0,0,0,0.4)]
             `}
             aria-label="Tirar dúvidas via WhatsApp"
           >
@@ -79,7 +81,7 @@ export default function ActionButtons({
             </svg>
             <span>Tirar dúvidas via WhatsApp</span>
           </a>
-          <p className="text-gray-700 text-sm mt-1 text-center">
+          <p className="text-gray-700 text-sm mt-4 text-center">
             Normalmente respondemos em menos de 2 minutos
           </p>
         </div>
