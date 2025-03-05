@@ -12,7 +12,7 @@ const ScenariosSection = () => {
   // Pré-carregamento do GIF
   useEffect(() => {
     const gifImage = new Image();
-    gifImage.src = "https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-46834e53-fc1e-40b7-85ff-38c05f29684b";
+    gifImage.src = "https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-0824192d-c12c-45f6-8efc-7b2135285408";
     gifImage.onload = () => setIsGifLoaded(true);
   }, []);
 
