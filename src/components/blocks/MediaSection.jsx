@@ -59,6 +59,17 @@ const MediaSection = () => {
         </div>
 
         <div className="max-w-5xl mx-auto mt-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <Heading2>
+              Quem é <span className="text-brand-green">João Mariano</span>?
+            </Heading2>
+          </motion.div>
+          
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -78,10 +89,6 @@ const MediaSection = () => {
               viewport={{ once: true }}
               className={`space-y-4 ${elementSpacing}`}
             >
-              <Heading2>
-                Quem é <span className="text-brand-green">João Mariano</span>?
-              </Heading2>
-              
               <Paragraph>
                 João Mariano é pioneiro e especialista em venda de produtos da horta e da roça pela internet no Brasil. <span className="font-semibold">Criador do Método Vendas DaHorta</span>, ele já ajudou dezenas de pessoas a alcançarem resultados expressivos, mesmo começando do zero.
               </Paragraph>

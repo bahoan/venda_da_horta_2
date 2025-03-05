@@ -47,7 +47,7 @@ const TimelineSection = () => {
     },
     {
       phase: 'FASE 4:',
-      title: 'ENTREGA ORGANIZADA',
+      title: 'CARRO CHEIO DA HORTA',
       description: [
         'Nessa fase, você já tem um fluxo constante de vendas e precisa organizar as entregas de forma eficiente. Você aprenderá a criar rotas otimizadas, gerenciar pedidos e garantir que tudo seja entregue no prazo.',
         'Com esse sistema, você consegue atender mais clientes em menos tempo, aumentando sua capacidade de vendas e reduzindo custos.'
@@ -68,18 +68,6 @@ const TimelineSection = () => {
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
           <path d="M22 2H2.01L2 22l4-4h16V2zm-4 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-        </svg>
-      )
-    },
-    {
-      phase: 'FASE 6:',
-      title: 'HORTA PRÓSPERA',
-      description: [
-        'Nessa fase, você domina completamente o Método Vendas DaHorta.'
-      ],
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
         </svg>
       )
     }
@@ -166,11 +154,12 @@ const TimelineSection = () => {
               <div className="w-[85%] md:w-[60%] bg-gray-50 rounded-xl overflow-hidden shadow-sm">
                 <div className="bg-brand-green text-white px-6 py-3 w-full text-center">
                   <Heading3 className="text-white">
-                    Conclusão do Método
+                  FASE 6: HORTA PRÓSPERA
                   </Heading3>
                 </div>
                 <div className="p-8">
                   <Paragraph className="text-lg">
+                    Nessa fase, você domina completamente o Método Vendas DaHorta.
                     Agora, você sabe exatamente como aumentar suas vendas, expandir os dias e regiões de entrega sempre que quiser. 
                     Você tem todas as ferramentas para alcançar faturamentos acima de R$15.000 por mês.
                   </Paragraph>

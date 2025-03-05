@@ -210,13 +210,11 @@ export default function LeadModal({ isOpen, onClose }) {
         ref={modalRef}
         className="bg-white rounded-lg p-6 w-full max-w-md mx-4 relative"
       >
-        <div className="flex justify-between items-center mb-6 pr-2">
-          <h2 className="text-xl font-bold text-green-600 pr-8">
-            Entrar no Vendas da Horta
-          </h2>
+        <div className="flex justify-between items-center mb-2">
+          <div className="w-full"></div>
           <button
             onClick={onClose}
-            className="text-gray-500 hover:text-gray-700 p-1"
+            className="text-gray-500 hover:text-gray-700 p-1 absolute top-4 right-4"
             aria-label="Fechar"
           >
             <svg
@@ -233,6 +231,18 @@ export default function LeadModal({ isOpen, onClose }) {
               />
             </svg>
           </button>
+        </div>
+
+        <div className="flex flex-col items-center mb-4">
+          <img 
+            src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-b88612c0-42e5-4841-819b-ca25a3b892c4" 
+            alt="Logo AppDaHorta"
+            className="mx-auto max-w-[150px] h-auto mb-4"
+            width={150}
+          />
+          <p className="text-center text-gray-700 text-sm mb-4">
+            Preencha o formulário e descubra como vender tudo da horta e da roça pelo WhatsApp
+          </p>
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -294,15 +304,6 @@ export default function LeadModal({ isOpen, onClose }) {
           </div>
 
           <div className="mt-6">
-            {/* Botão Cancelar - Comentado temporariamente
-            <button
-              type="button"
-              onClick={onClose}
-              className="px-6 py-3 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
-            >
-              Cancelar
-            </button>
-            */}
             <button
               type="submit"
               disabled={isSubmitting}
@@ -317,9 +318,15 @@ export default function LeadModal({ isOpen, onClose }) {
                   Processando...
                 </>
               ) : (
-                'ENTRAR'
+                'Entrar no Vendas da Horta'
               )}
             </button>
+            <p className="text-center text-gray-600 text-xs mt-3 flex items-center justify-center">
+              <svg className="w-4 h-4 mr-1 text-green-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd"></path>
+              </svg>
+              Seus Dados Estão Protegidos
+            </p>
           </div>
         </form>
       </div>

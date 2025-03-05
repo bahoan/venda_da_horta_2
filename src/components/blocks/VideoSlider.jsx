@@ -131,15 +131,14 @@ const VideoModal = ({ isOpen, onClose, currentVideo, onPrev, onNext }) => {
           maxHeight: modalDimensions.maxHeight
         }}
       >
-        {/* Cabeçalho */}
-        <div className="bg-white px-8 py-5 flex justify-between items-center border-b">
-          <h2 className="text-xl font-semibold text-gray-800 truncate pr-8">{currentVideo.title}</h2>
+        {/* Close button in the top-right corner */}
+        <div className="absolute top-4 right-4 z-10">
           <button 
             onClick={() => {
               onClose();
               setIsVideoLoaded(false);
             }}
-            className="text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-200 rounded-full p-1.5 transition-colors"
+            className="bg-white text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-200 rounded-full p-1.5 transition-colors shadow-md"
             aria-label="Fechar"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,11 +147,11 @@ const VideoModal = ({ isOpen, onClose, currentVideo, onPrev, onNext }) => {
           </button>
         </div>
         
-        {/* Container flexível para vídeo e descrição em desktop */}
-        <div className="flex-1 flex flex-col md:flex-row overflow-hidden p-4 md:p-8 bg-gray-50 space-x-0 md:space-x-8">
+        {/* Video container - full width */}
+        <div className="flex-1 flex flex-col overflow-hidden p-4 md:p-8 bg-gray-50">
           {/* Vídeo */}
-          <div className="w-full md:w-2/3 flex flex-col">
-            <div className="aspect-video bg-black rounded-xl overflow-hidden mb-4">
+          <div className="w-full flex flex-col">
+            <div className="aspect-video bg-black rounded-xl overflow-hidden">
               <iframe
                 src={`https://www.youtube-nocookie.com/embed/${currentVideo.id}?autoplay=1&modestbranding=1&rel=0&enablejsapi=0&origin=${window.location.origin}`}
                 title="YouTube video player"
@@ -164,31 +163,6 @@ const VideoModal = ({ isOpen, onClose, currentVideo, onPrev, onNext }) => {
                 sandbox="allow-same-origin allow-scripts allow-presentation allow-popups"
               />
             </div>
-            {/* Espaçador apenas para desktop */}
-            <div className="hidden md:block flex-grow" />
-          </div>
-          
-          {/* Descrição com scrollbar customizada */}
-          <div className="w-full md:w-1/3 mt-2 md:mt-0 overflow-y-auto custom-scrollbar">
-            <style>{`
-              .custom-scrollbar::-webkit-scrollbar {
-                width: 8px;
-              }
-              .custom-scrollbar::-webkit-scrollbar-track {
-                background: #f3f4f6;
-                border-radius: 4px;
-              }
-              .custom-scrollbar::-webkit-scrollbar-thumb {
-                background: #94a3b8;
-                border-radius: 4px;
-                border: 2px solid #f3f4f6;
-              }
-              .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-                background: #64748b;
-              }
-            `}</style>
-            <h3 className="text-lg font-semibold text-gray-800 mb-3">{currentVideo.title}</h3>
-            <p className="text-gray-700 leading-relaxed">{currentVideo.description}</p>
           </div>
         </div>
         
@@ -227,6 +201,11 @@ const VideoSlider = () => {
   const [isMobile, setIsMobile] = useState(false);
   const swiperRef = useRef(null);
 
+  // Variável para controlar se a requisição já foi feita
+  const fetchController = {
+    isFetching: false
+  };
+
   // Verifica se é mobile
   useEffect(() => {
     const checkIfMobile = () => {
@@ -250,8 +229,15 @@ const VideoSlider = () => {
 
   // Buscar depoimentos do Supabase quando o componente for montado
   useEffect(() => {
+    // Evitar chamadas duplicadas
+    if (fetchController.isFetching) {
+      return;
+    }
+    
     const loadTestimonials = async () => {
+      fetchController.isFetching = true;
       setLoading(true);
+      
       try {
         const result = await fetchVideoTestimonials();
         
@@ -268,10 +254,16 @@ const VideoSlider = () => {
         setVideos(fallbackVideos);
       } finally {
         setLoading(false);
+        // Não resetamos isFetching para evitar novas chamadas
       }
     };
 
     loadTestimonials();
+    
+    // Cleanup function
+    return () => {
+      // Não fazemos nada aqui, pois queremos manter isFetching=true
+    };
   }, []);
 
   const openModal = (index) => {
@@ -324,7 +316,7 @@ const VideoSlider = () => {
           <Subtitle className="text-brand-green mb-2">
             {video.title}
           </Subtitle>
-          <Paragraph className="text-sm line-clamp-4 hover:line-clamp-none transition-all duration-300">
+          <Paragraph className="text-sm">
             {video.description}
           </Paragraph>
         </div>
@@ -384,7 +376,7 @@ const VideoSlider = () => {
           }}
           pagination={{ clickable: true }}
           autoplay={{
-            delay: 2000,
+            delay: 4000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
