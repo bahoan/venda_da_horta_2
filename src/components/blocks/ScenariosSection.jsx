@@ -19,12 +19,12 @@ const ScenariosSection = () => {
   const scenarios = [
     {
       title: "Se você está começando do zero:",
-      content: "Com o Método Vendas DaHorta, você começa de forma certa, economizando tempo e esforço. Mesmo sem contatos no WhatsApp, o método te ensina a atrair clientes rapidamente, investindo pouco e usando modelos prontos e testados. É só copiar, colar e começar a vender, antes de gastar ou produzir, garantindo que você já vai ter clientes te esperando e sem correr o risco de fazer grandes investimentos na estrutura da sua horta ou produção e não ter retorno.",
+      content: "Com o Método Vendas DaHorta, você começa da forma certa, economizando tempo e esforço. Mesmo sem contatos no WhatsApp, o método te ensina a atrair clientes rapidamente, investindo pouco e usando modelos prontos e testados. É só copiar, colar e começar a vender antes de colher ou produzir, garantindo mais chances de sucesso sem desperdícios e sem correr o risco de fazer grandes investimentos na estrutura da sua horta ou produção e não ter retorno.",
       icon: <SproutIcon className="w-6 h-6 flex-shrink-0 mt-1" />
     },
     {
       title: "Se você já vende hortaliças e produtos da roça:",
-      content: "O Método Vendas DaHorta vai impulsionar suas vendas. Com disparo em massa, você vende mais para seus clientes atuais e recupera muitos os contatos que estão no seu WhatsApp há tempos, mas que nunca pediram nem um molinho de salsa para comprar. Em poucos dias, você começa a atrair novos clientes, automatizando a organização das formas constante e recorrente de vez seus problemas de vendas.",
+      content: "O Método Vendas DaHorta vai impulsionar suas vendas. Com disparos em massa, você vende mais para seus clientes atuais e recupera vendas de contatos que estão no seu WhatsApp há tempos, mas que nunca pediram nem um pezinho de alface para comprar. Em poucos dias, você começa a atrair novos clientes, aumentando o faturamento de forma constante e resolvendo de vez seus problemas de vendas.",
       icon: <TrendingUpIcon className="w-6 h-6 flex-shrink-0 mt-1" />
     }
   ];
@@ -74,8 +74,7 @@ const ScenariosSection = () => {
           {/* Texto */}
           <div className={elementSpacing}>
             <Paragraph className="text-lg max-w-3xl mx-auto">
-              Ao comprar o curso Vendas DaHorta, você ganha 360 dias de acesso ao ao plano básico AppDaHorta, 
-              uma ferramenta completa para organizar e automatizar suas vendas.
+            Ao comprar o curso Vendas DaHorta, você ganha 360 dias de acesso ao plano básico do AppDaHorta, uma ferramenta completa para organizar e automatizar suas vendas.
             </Paragraph>
           </div>
 
@@ -175,7 +174,7 @@ const ScenariosSection = () => {
                   <ActionButtons 
                     fullWidth 
                     showOnlyMainButton={false}
-                    topText="Até quando você vai esperar para parar de sofrer por não conseguir vender todos os produtos da horta?"
+                    topText="Tudo na vida, depois que aprende, fica fácil – inclusive vender pela internet."
                     className="px-0"
                   />
                 </div>

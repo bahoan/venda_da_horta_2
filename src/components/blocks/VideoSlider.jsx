@@ -15,22 +15,30 @@ import 'swiper/css/pagination';
 // Array de vídeos de fallback para caso a API falhe
 const fallbackVideos = [
   {
-    id: 'JuBYKiyGJ5E',
+    id: 1,
+    url: '/videos/depoimento1.mp4',
+    thumbnail: '/images/thumbnails/depoimento1.jpg',
     title: '"agora podemos sonhar: dobramos nossas vendas e sabemos o caminho para crescer toda semana"',
     description: 'Antes do Método Vendas DaHorta, nossas vendas eram desorganizadas e sem constância. Um dia vendíamos bem, no outro nada. R$2.000 em uma semana era um milagre. Depois do método, tudo mudou: já fizemos mais de R$3.000 em um único dia e dobramos nosso faturamento semanal para mais de R$4.000. Mas o mais importante é que agora podemos sonhar, planejar o futuro e ter a certeza de que estamos no caminho certo para crescer semana após semana.'
   },
   {
-    id: 'Wf59tJIWjTg',
+    id: 2,
+    url: '/videos/depoimento2.mp4',
+    thumbnail: '/images/thumbnails/depoimento2.jpg',
     title: '"Saí de R$3.000 para quase R$12.000 em um mês com o mesmo produto, só ajustando e aplicando o método certo!"',
     description: 'Eu já fui produtor com horta e vendia bem, mas quando fiquei só com o delivery, meu faturamento caiu para R$3.000, R$4.000 por mês. Eu achava que vender pela internet não era pra mim e que estava perdendo tempo. Até que um amigo me indicou o João e o Método Vendas DaHorta. Foi aí que tudo mudou: apliquei as técnicas e ajustes do método e, em um mês, passei a faturar mais R$11.000 com o mesmo produto. Hoje, sei que o segredo é usar o método certo para alcançar resultados reais!'
   },
   {
-    id: '31FETD0WmEo',
+    id: 3,
+    url: '/videos/depoimento3.mp4',
+    thumbnail: '/images/thumbnails/depoimento3.jpg',
     title: '"em um mês quadruplicamos nossas vendas de assinaturas"',
     description: 'Trabalho com o modelo CSA (Consumidor que Sustenta Agricultura), oferecendo assinaturas mensais de cestas de alimentos. Antes do método, dependia do boca a boca e de postagens no WhatsApp e Instagram, mas nada funcionava direito. Eu ficava perdido, sem saber como atrair mais clientes. Foi aí que comecei a aplicar o Método Vendas DaHorta, e tudo mudou. Em um mês, passei de 3 assinaturas para 12. Quadruplicar minhas vendas parecia impossível antes, mas agora sei que com o método certo, o crescimento é real e rápido!'
   },
   {
-    id: '_QZRQr_9tkw',
+    id: 4,
+    url: '/videos/depoimento4.mp4',
+    thumbnail: '/images/thumbnails/depoimento4.jpg',
     title: '"Investi R$32 e vendi R$1.500 no primeiro fim de semana aplicando o Método Vendas DaHorta"',
     description: 'Eu já tinha tentado de tudo para vender meus produtos orgânicos online, mas nada funcionava. Gastei dinheiro com anúncios caros e sem resultado. Quando conheci o Método Vendas DaHorta, decidi dar uma última chance. Investi apenas R$32 em anúncios seguindo exatamente o que o método ensina e, no primeiro fim de semana, vendi R$1.500 em produtos! O método é simples, direto e funciona de verdade. Hoje sei que o problema nunca foi meu produto, mas sim a estratégia que eu estava usando.'
   }
@@ -39,64 +47,8 @@ const fallbackVideos = [
 // Componente para o Modal de Vídeo
 const VideoModal = ({ isOpen, onClose, currentVideo, onPrev, onNext }) => {
   const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [modalDimensions, setModalDimensions] = useState({ width: '90%', maxWidth: '900px', maxHeight: '90vh' });
-
-  // Ajustar dimensões do modal com base no tamanho da tela
-  React.useEffect(() => {
-    const updateDimensions = () => {
-      const width = window.innerWidth;
-      const height = window.innerHeight;
-      
-      if (width <= 640) { // Mobile
-        setModalDimensions({
-          width: '95%',
-          maxWidth: '100%',
-          maxHeight: '85vh'
-        });
-      } else if (width <= 1024) { // Tablet
-        setModalDimensions({
-          width: '90%',
-          maxWidth: '800px',
-          maxHeight: '85vh'
-        });
-      } else { // Desktop
-        setModalDimensions({
-          width: '90%',
-          maxWidth: '1200px',
-          maxHeight: '90vh'
-        });
-      }
-    };
-
-    updateDimensions();
-    window.addEventListener('resize', updateDimensions);
-    
-    return () => {
-      window.removeEventListener('resize', updateDimensions);
-    };
-  }, []);
-
-  // Fechar modal ao pressionar ESC
-  React.useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === 'Escape') {
-        onClose();
-        setIsVideoLoaded(false);
-      }
-    };
-    
-    if (isOpen) {
-      document.addEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'hidden'; // Previne rolagem do body
-    }
-    
-    return () => {
-      document.removeEventListener('keydown', handleEsc);
-      document.body.style.overflow = 'auto'; // Restaura rolagem
-    };
-  }, [isOpen, onClose]);
-
-  // Fechar ao clicar fora do modal
+  
+  // Fechar o modal quando clicar fora do vídeo
   const handleOutsideClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -104,88 +56,64 @@ const VideoModal = ({ isOpen, onClose, currentVideo, onPrev, onNext }) => {
     }
   };
 
-  const handlePrev = () => {
-    setIsVideoLoaded(false);
-    onPrev();
-  };
+  // Adicionar navegação por teclado
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (!isOpen) return;
+      
+      if (e.key === 'ArrowLeft') {
+        onPrev();
+        setIsVideoLoaded(false);
+      } else if (e.key === 'ArrowRight') {
+        onNext();
+        setIsVideoLoaded(false);
+      } else if (e.key === 'Escape') {
+        onClose();
+        setIsVideoLoaded(false);
+      }
+    };
 
-  const handleNext = () => {
-    setIsVideoLoaded(false);
-    onNext();
-  };
+    window.addEventListener('keydown', handleKeyDown);
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isOpen, onPrev, onNext, onClose]);
 
   if (!isOpen || !currentVideo) return null;
 
   return (
-    <div 
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 backdrop-blur-sm transition-opacity p-4"
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 backdrop-blur-sm"
       onClick={handleOutsideClick}
       aria-modal="true"
       role="dialog"
     >
-      <div 
-        className="bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all flex flex-col"
-        style={{ 
-          width: modalDimensions.width, 
-          maxWidth: modalDimensions.maxWidth,
-          maxHeight: modalDimensions.maxHeight
-        }}
-      >
-        {/* Close button in the top-right corner */}
-        <div className="absolute top-4 right-4 z-10">
-          <button 
-            onClick={() => {
-              onClose();
-              setIsVideoLoaded(false);
-            }}
-            className="bg-white text-gray-400 hover:text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-200 rounded-full p-1.5 transition-colors shadow-md"
-            aria-label="Fechar"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </button>
-        </div>
+      <div className="relative w-full max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+        {/* Botão de fechar no canto superior direito */}
+        <button 
+          onClick={() => {
+            onClose();
+            setIsVideoLoaded(false);
+          }}
+          className="absolute -top-10 right-2 sm:right-0 bg-white text-gray-800 rounded-full p-2 shadow-lg z-10"
+          aria-label="Fechar"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
         
-        {/* Video container - full width */}
-        <div className="flex-1 flex flex-col overflow-hidden p-4 md:p-8 bg-gray-50">
-          {/* Vídeo */}
-          <div className="w-full flex flex-col">
-            <div className="aspect-video bg-black rounded-xl overflow-hidden">
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${currentVideo.id}?autoplay=1&modestbranding=1&rel=0&enablejsapi=0&origin=${window.location.origin}`}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-                loading="lazy"
-                onLoad={() => setIsVideoLoaded(true)}
-                sandbox="allow-same-origin allow-scripts allow-presentation allow-popups"
-              />
-            </div>
-          </div>
-        </div>
-        
-        {/* Navegação */}
-        <div className="px-4 md:px-8 py-4 md:py-5 bg-white border-t flex justify-between items-center">
-          <button
-            onClick={handlePrev}
-            className="px-5 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 flex items-center transition-all"
-          >
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Anterior
-          </button>
-          <button
-            onClick={handleNext}
-            className="px-5 py-2.5 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-200 flex items-center transition-all"
-          >
-            Próximo
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+        {/* Container do vídeo - simples e direto */}
+        <div className="relative w-full aspect-video bg-black rounded-lg overflow-hidden">
+          <video
+            src={currentVideo.url}
+            poster={currentVideo.thumbnail}
+            controls
+            autoPlay
+            className="absolute inset-0 w-full h-full object-contain"
+            onLoadedData={() => setIsVideoLoaded(true)}
+          />
         </div>
       </div>
     </div>
@@ -289,8 +217,6 @@ const VideoSlider = () => {
 
   // Componente para o card de vídeo (thumbnail)
   const VideoCard = ({ video, index }) => {
-    const thumbnailUrl = `https://img.youtube.com/vi/${video.id}/maxresdefault.jpg`;
-    
     return (
       <div 
         className="flex flex-col gap-4 bg-white rounded-xl shadow-sm cursor-pointer mx-1 md:mx-2"
@@ -298,7 +224,7 @@ const VideoSlider = () => {
       >
         <div className="aspect-video rounded-t-xl overflow-hidden bg-black relative">
           <img
-            src={thumbnailUrl}
+            src={video.thumbnail}
             alt={video.title}
             className="w-full h-full object-cover"
           />
