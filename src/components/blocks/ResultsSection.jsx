@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import { Navigation, Pagination } from 'swiper/modules';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { ActionButtons } from '../ui';
 import { HighlightText } from '../ui/typography/Typography';
@@ -35,6 +35,29 @@ const fallbackImages = [
 // Variável para controlar se a requisição já foi feita
 const fetchController = {
   isFetching: false
+};
+
+// Componente para o card de imagem - movido para fora do componente principal
+const ImageCard = ({ item }) => {
+  const [imgError, setImgError] = useState(false);
+  
+  return (
+    <div className="relative p-1">
+      <div className="rounded-[2rem] overflow-hidden shadow-md">
+        <img
+          src={imgError ? fallbackImages[0].url : item.url}
+          alt={item.nome || "Resultado do Vendas DaHorta"}
+          className="w-full"
+          style={{ aspectRatio: '9/19', maxHeight: '450px', objectFit: 'cover' }}
+          loading="lazy"
+          onError={(e) => {
+            console.error(`Erro ao carregar imagem: ${item.url}`);
+            setImgError(true);
+          }}
+        />
+      </div>
+    </div>
+  );
 };
 
 const ResultsSection = () => {
@@ -109,40 +132,6 @@ const ResultsSection = () => {
     };
   }, []);
 
-  // Controlar o autoplay baseado na visibilidade
-  useEffect(() => {
-    if (swiperRef.current?.swiper) {
-      if (isVisible) {
-        swiperRef.current.swiper.autoplay.start();
-      } else {
-        swiperRef.current.swiper.autoplay.stop();
-      }
-    }
-  }, [isVisible]);
-
-  // Componente para o card de imagem
-  const ImageCard = ({ item }) => {
-    const [imgError, setImgError] = useState(false);
-    
-    return (
-      <div className="relative p-1">
-        <div className="rounded-[2rem] overflow-hidden shadow-md">
-          <img
-            src={imgError ? fallbackImages[0].url : item.url}
-            alt={item.nome || "Resultado do Vendas DaHorta"}
-            className="w-full"
-            style={{ aspectRatio: '9/19', maxHeight: '500px', objectFit: 'cover' }}
-            loading="lazy"
-            onError={(e) => {
-              console.error(`Erro ao carregar imagem: ${item.url}`);
-              setImgError(true);
-            }}
-          />
-        </div>
-      </div>
-    );
-  };
-
   // Renderiza um loader enquanto os dados estão sendo carregados
   if (loading) {
     return (
@@ -164,7 +153,7 @@ const ResultsSection = () => {
   }
 
   // Determinar se deve usar o modo loop com base no número de slides
-  const shouldUseLoop = carouselItems.length >= 4;
+  const shouldUseLoop = true; // Sempre usar loop para ter carrossel infinito
   // Ajustar o número de slides por visualização com base no número total de slides
   const getOptimalSlidesPerView = (totalSlides, breakpoint) => {
     if (totalSlides <= 1) return 1;
@@ -189,60 +178,53 @@ const ResultsSection = () => {
         </motion.div>
 
         {/* Área do carrossel com margem infinita */}
-        <div className="w-full overflow-hidden mt-8 max-w-3xl mx-auto">
-          <Swiper
-            ref={swiperRef}
-            modules={[Navigation, Pagination, Autoplay]}
-            spaceBetween={20}
-            slidesPerView={1}
-            centeredSlides={carouselItems.length > 1}
-            loop={shouldUseLoop}
-            navigation={{
-              nextEl: '.swiper-button-next',
-              prevEl: '.swiper-button-prev',
-            }}
-            pagination={{ clickable: true }}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-              pauseOnMouseEnter: true,
-            }}
-            breakpoints={{
-              480: {
-                slidesPerView: getOptimalSlidesPerView(carouselItems.length, 1.5),
-                spaceBetween: 20
-              },
-              640: {
-                slidesPerView: getOptimalSlidesPerView(carouselItems.length, 2),
-                spaceBetween: 20
-              },
-              768: {
-                slidesPerView: getOptimalSlidesPerView(carouselItems.length, 3),
-                spaceBetween: 20
-              }
-            }}
-            className="!pb-12 !px-0 group relative"
-          >
-            {/* Botões de navegação customizados - mostrados apenas se houver mais de um slide */}
-            {carouselItems.length > 1 && (
-              <>
-                <div className="swiper-button-prev !w-10 !h-10 !bg-green-600 hover:!bg-green-700 !rounded-full !shadow-lg !opacity-90 !flex !items-center !justify-center !left-2 md:!left-4 !top-[40%] z-10">
-                  <ChevronLeft className="w-5 h-5 text-white" />
-                </div>
-                <div className="swiper-button-next !w-10 !h-10 !bg-green-600 hover:!bg-green-700 !rounded-full !shadow-lg !opacity-90 !flex !items-center !justify-center !right-2 md:!right-4 !top-[40%] z-10">
-                  <ChevronRight className="w-5 h-5 text-white" />
-                </div>
-              </>
-            )}
+        <div className="w-full overflow-visible mt-8 relative">
+          <div className="carousel-container -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12">
+            <Swiper
+              ref={swiperRef}
+              modules={[Navigation, Pagination]}
+              spaceBetween={5}
+              slidesPerView={1.8}
+              centeredSlides={true}
+              loop={shouldUseLoop}
+              navigation={{
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+              }}
+              pagination={{ clickable: true }}
+              breakpoints={{
+                480: {
+                  slidesPerView: getOptimalSlidesPerView(carouselItems.length, 1.8),
+                  spaceBetween: 15
+                },
+                640: {
+                  slidesPerView: getOptimalSlidesPerView(carouselItems.length, 2.2),
+                  spaceBetween: 20
+                },
+                768: {
+                  slidesPerView: getOptimalSlidesPerView(carouselItems.length, 3),
+                  spaceBetween: 20
+                }
+              }}
+              className="!pb-12 !px-0 group relative"
+            >
+              {/* Botões de navegação customizados - sempre visíveis */}
+              <div className="swiper-button-prev !w-10 !h-10 !bg-green-600 hover:!bg-green-700 !rounded-full !shadow-lg !opacity-90 !flex !items-center !justify-center !left-2 md:!left-4 !top-[40%] z-10 !absolute">
+                <ChevronLeft className="w-5 h-5 text-white" />
+              </div>
+              <div className="swiper-button-next !w-10 !h-10 !bg-green-600 hover:!bg-green-700 !rounded-full !shadow-lg !opacity-90 !flex !items-center !justify-center !right-2 md:!right-4 !top-[40%] z-10 !absolute">
+                <ChevronRight className="w-5 h-5 text-white" />
+              </div>
 
-            {carouselItems.map((item) => (
-              <SwiperSlide key={item.id} className="flex justify-center">
-                <div className="max-w-[240px]">
-                  <ImageCard item={item} />
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+              {carouselItems.map((item) => (
+                <SwiperSlide key={item.id} className="flex justify-center">
+                  <div className="max-w-[200px]">
+                    <ImageCard item={item} />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
 
         <motion.div
@@ -261,7 +243,7 @@ const ResultsSection = () => {
               <ActionButtons 
                 fullWidth 
                 showOnlyMainButton={false}
-                topText="Até quando você vai esperar para parar de sofrer por não conseguir vender todos os produtos da horta?"
+                topText="Tudo na vida, depois que aprende, fica fácil! Inclusive vender pela internet."
               />
             </motion.div>
           </div>

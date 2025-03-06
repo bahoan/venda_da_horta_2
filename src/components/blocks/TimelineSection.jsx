@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import { Heading2, Heading3, Paragraph, HighlightText, Subtitle } from '../ui/typography/Typography';
 import { spacingClasses } from '../../styles/utils';
+import { Sprout } from 'lucide-react';
+import { FaHatCowboy } from 'react-icons/fa6';
 
 const TimelineSection = () => {
   const { elementSpacing, sectionSpacing } = spacingClasses;
@@ -10,12 +12,12 @@ const TimelineSection = () => {
       phase: 'FASE 1:',
       title: 'IMÃ DE CLIENTES DA HORTA',
       description: [
-        'Sair do zero e começar a venda de produtos da horta e da roça na internet. Essa é a base da metodologia Vendas DaHorta',
-        'O Método Vendas DaHorta quebra uma caminhada longa e complexa em etapas simples e possíveis.'
+        'Nessa fase, você vai organizar seus redes sociais e aprender a criar os primeiros anúncios que vão atrair pessoas interessadas nos seus produtos direto para o seu WhatsApp.',
+        'É aqui que os primeiros novos clientes começar a chegar.'
       ],
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6zm0 4h8v2H6zm10 0h2v2h-2zm-6-4h8v2h-8zm-6-4h8v2h-8z"/>
+          <path d="M14.4 6L14 4H5v17h2v-7h5.6l.4 2h7V6z"/>
         </svg>
       )
     },
@@ -27,9 +29,7 @@ const TimelineSection = () => {
         'Isso vai te ajudar a atender os clientes com agilidade, fazer as primeiras vendas e começar a montar uma base sólida de contatos que poderão comprar de você.'
       ],
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M19 8l-4 4h3c0 3.31-2.69 6-6 6-1.01 0-1.97-.25-2.8-.7l-1.46 1.46C8.97 19.54 10.43 20 12 20c4.42 0 8-3.58 8-8h3l-4-4zM6 12c0-3.31 2.69-6 6-6 1.01 0 1.97.25 2.8.7l1.46-1.46C15.03 4.46 13.57 4 12 4c-4.42 0-8 3.58-8 8H1l4 4 4-4H6z"/>
-        </svg>
+        <Sprout className="w-6 h-6" />
       )
     },
     {
@@ -40,9 +40,7 @@ const TimelineSection = () => {
         'É nesse momento que suas vendas começam a crescer semana após semana, fidelizando clientes e recuperando vendas de quem ainda não comprou.'
       ],
       icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M11 9h2V6h3V4h-3V1h-2v3H8v2h3v3zm-4 9c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2zm-8.9-5h7.45c.75 0 1.41-.41 1.75-1.03l3.86-7.01L19.42 4l-3.87 7H8.53L4.27 2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7l1.1-2z"/>
-        </svg>
+        <FaHatCowboy className="w-6 h-6" />
       )
     },
     {
@@ -67,7 +65,7 @@ const TimelineSection = () => {
       ],
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M22 2H2.01L2 22l4-4h16V2zm-4 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+          <path d="M20 9V7c0-1.1-.9-2-2-2h-3c0-1.66-1.34-3-3-3S9 3.34 9 5H6c-1.1 0-2 .9-2 2v2c-1.66 0-3 1.34-3 3s1.34 3 3 3v4c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4c1.66 0 3-1.34 3-3s-1.34-3-3-3zm-2 10H6V7h12v12zm-9-6c-.83 0-1.5-.67-1.5-1.5S8.17 10 9 10s1.5.67 1.5 1.5S9.83 13 9 13zm7.5-1.5c0 .83-.67 1.5-1.5 1.5s-1.5-.67-1.5-1.5.67-1.5 1.5-1.5 1.5.67 1.5 1.5zM8 15h8v2H8v-2z"/>
         </svg>
       )
     }

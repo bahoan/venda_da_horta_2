@@ -128,7 +128,7 @@ export async function fetchVideoTestimonials() {
 
     // Busca os depoimentos do Supabase via REST API
     // Ordenados pela coluna sort
-    const response = await fetch(`${videoSiteUrl}?select=id,url,titulo,depoimento,sort&order=sort.asc`, {
+    const response = await fetch(`${videoSiteUrl}?select=id,url,titulo,depoimento,sort,thumbnail&order=sort.asc`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -153,16 +153,15 @@ export async function fetchVideoTestimonials() {
     const formattedTestimonials = testimonials
       .filter(item => item && typeof item === 'object')
       .map(item => {
-        // Extrai o ID do YouTube da URL
-        const youtubeId = extractYoutubeId(item.url || '');
-        
         return {
-          id: youtubeId,
+          id: item.id,
+          url: item.url || '',
           title: item.titulo || '',
-          description: item.depoimento || ''
+          description: item.depoimento || '',
+          thumbnail: item.thumbnail || ''
         };
       })
-      .filter(item => item.id); // Filtra itens sem ID
+      .filter(item => item.url); // Filtra itens sem URL
     
     return { data: formattedTestimonials };
   } catch (error) {
