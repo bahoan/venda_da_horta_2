@@ -19,7 +19,7 @@ export default function ActionButtons({
   ...props
 }) {
   const { openModal } = useModal();
-  const whatsappUrl = "https://api.whatsapp.com/send/?phone=5544998105067&text=Ol%C3%A1%2C+tenho+d%C3%BAvidas+sobre+o+M%C3%A9todo+Vendas+DaHorta&type=phone_number&app_absent=0";
+  const whatsappUrl = "https://wa.me/5544998408707?text=Ol%C3%A1%2C%20tenho%20d%C3%BAvidas%20sobre%20o%20M%C3%A9todo%20Vendas%20DaHorta";
   
   const handleEnterClick = () => {
     // Rastreia o clique no botão principal
