@@ -20,11 +20,13 @@ export default function ActionButtons({
 }) {
   const { openModal } = useModal();
   const whatsappUrl = "https://wa.me/5544998408707?text=Ol%C3%A1%2C%20tenho%20d%C3%BAvidas%20sobre%20o%20M%C3%A9todo%20Vendas%20DaHorta";
+  const whatsappMainUrl = "https://wa.me/5544998408707?text=Ol%C3%A1%2C%20quero%20entrar%20para%20o%20Vendas%20DaHorta";
   
   const handleEnterClick = () => {
     // Rastreia o clique no botão principal
     trackEnterButtonClick('action_buttons');
-    openModal();
+    // Comentado temporariamente para usar o link do WhatsApp em vez do modal
+    // openModal();
   };
 
   const handleWhatsAppClick = () => {
@@ -42,7 +44,10 @@ export default function ActionButtons({
       )}
       
       {/* Botão verde - Entrar no Vendas DaHorta */}
-      <button 
+      <a 
+        href={whatsappMainUrl}
+        target="_blank"
+        rel="noopener noreferrer"
         onClick={handleEnterClick}
         className={`
           bg-brand-green text-white font-bold py-4 px-6 rounded-lg
@@ -51,11 +56,12 @@ export default function ActionButtons({
           active:scale-105 md:active:scale-100
           w-full text-xl
           shadow-[0_4px_10px_rgba(0,0,0,0.6)]
+          text-center
         `}
         {...props}
       >
         Entrar no Vendas DaHorta
-      </button>
+      </a>
       
       {/* Botão cinza - Tirar dúvidas via WhatsApp (condicional) */}
       {!showOnlyMainButton && (

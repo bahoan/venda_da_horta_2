@@ -4,7 +4,7 @@ Allow: /
 # Sitemap
 Sitemap: https://vendasdahorta.com.br/sitemap.xml
 
-# Diretórios e arquivos específicos
-Disallow: /assets/*.js$    # Arquivos JavaScript
-Disallow: /assets/*.css$   # Arquivos CSS
-Disallow: /assets/*.map$   # Source maps
+# Não indexar arquivos técnicos
+Disallow: /assets/*.js$    
+Disallow: /assets/*.css$   
+Disallow: /assets/*.map$   
