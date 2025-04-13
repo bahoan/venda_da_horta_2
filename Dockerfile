@@ -1,5 +1,5 @@
 # Build stage
-FROM node:18-alpine as build
+FROM node:18-alpine AS build
 
 WORKDIR /app
 
@@ -12,12 +12,12 @@ COPY . .
 RUN npm run build
 
 # Estágio de produção
-FROM nginx:alpine as production
+FROM nginx:alpine AS production
 
-# Copiar os arquivos de build para o diretório do Nginx
+# Copiar os arquivos de build para o diretorio do Nginx
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Configurações de timeout para o Nginx
+# Configuracoes de timeout para o Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY nginx-proxy-timeout.conf /etc/nginx/conf.d/timeout.conf
 
@@ -25,7 +25,7 @@ COPY nginx-proxy-timeout.conf /etc/nginx/conf.d/timeout.conf
 COPY mime.types /etc/nginx/mime.types
 COPY default_types.conf /etc/nginx/conf.d/default_types.conf
 
-# Configurar permissões
+# Configurar permissoes
 RUN mkdir -p /var/cache/nginx && \
     mkdir -p /var/log/nginx && \
     mkdir -p /etc/nginx/conf.d && \
@@ -38,7 +38,7 @@ RUN mkdir -p /var/cache/nginx && \
 # Instalar wget para healthcheck
 RUN apk add --no-cache wget
 
-# Usar root para iniciar o Nginx (evita problemas de permissão)
+# Usar root para iniciar o Nginx (evita problemas de permissao)
 # USER nginx
 
 # Expose port
