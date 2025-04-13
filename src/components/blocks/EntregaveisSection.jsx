@@ -8,7 +8,7 @@ const EntregaveisSection = () => {
   const features = [
     {
       image: "https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-1420d77e-2e6c-44b4-aba1-5d68468535a4",
-      text: "Nada de anotar pedidos em caderninho ou em planilhas manuais! Ao se inscrever no Método Vendas DaHorta, você ganha 100 dias de acesso gratuito ao AppDaHorta, um sistema exclusivo que vai automatizar, organizar e facilitar a vida de quem vende hortaliças e alimentos da agricultura familiar pela internet!"
+      text: "<strong>Nada de anotar pedidos em caderninho ou em planilhas manuais!</strong><br/><br/>Ao se inscrever no Método Vendas DaHorta, você ganha 100 dias de acesso gratuito ao AppDaHorta, um sistema exclusivo que vai automatizar, organizar e facilitar a vida de quem vende hortaliças e alimentos da agricultura familiar pela internet!"
     },
     {
       image: "https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-0727d2cb-d74f-4dec-8c55-d4ab7917e33a",
@@ -71,9 +71,10 @@ const EntregaveisSection = () => {
 
               {/* Text */}
               <div className="md:w-1/2">
-                <Paragraph className="text-gray-700 text-lg leading-relaxed">
-                  {feature.text}
-                </Paragraph>
+                <Paragraph 
+                  className="text-gray-700 text-lg leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: feature.text }}
+                />
               </div>
             </motion.div>
           ))}

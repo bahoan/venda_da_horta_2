@@ -25,8 +25,8 @@ const DemonstrationSection = () => {
     {
       number: 2,
       title: "O atendimento acontece no automático.",
-      image: "https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-0824192d-c12c-45f6-8efc-7b2135285408",
-      isGif: true
+      image: "https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-882e9a91-f78d-4571-a1c1-d8a791e17f20",
+      isGif: false
     },
     {
       number: 3,
@@ -143,7 +143,7 @@ const DemonstrationSection = () => {
             </div>
 
             {/* Gallery */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               {galleryImages.map((image, index) => (
                 <motion.div
                   key={index}
@@ -151,12 +151,12 @@ const DemonstrationSection = () => {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
-                  className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
+                  className="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white p-2"
                 >
                   <img 
                     src={image} 
                     alt={`Resultado do Método Vendas DaHorta ${index + 1}`}
-                    className="w-full h-auto object-cover aspect-square"
+                    className="w-full h-auto object-contain"
                   />
                 </motion.div>
               ))}

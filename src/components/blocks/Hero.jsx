@@ -64,7 +64,7 @@ export default function Hero() {
           
           <div className={`max-w-4xl mx-auto text-center ${elementSpacing}`}>
             <Paragraph>
-              Se você quer transformar seu negócio de hortaliças e aumentar suas vendas com estas estratégias, clique no botão abaixo agora
+            Se você quer ver seu WhatsApp cheio de clientes e suas entregas lotadas de pedidos toda semana, clique no botão abaixo
             </Paragraph>
           </div>
           

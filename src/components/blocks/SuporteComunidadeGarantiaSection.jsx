@@ -101,7 +101,7 @@ const SuporteComunidadeGarantiaSection = () => {
           >
             <div className="flex flex-col md:flex-row items-center justify-center gap-8 mb-8">
               <img 
-                src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-62bb71e3-e342-4fca-aa3d-b55f5951e733" 
+                src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-c20428b0-3dc5-4754-8b9a-b58c6e48fa40" 
                 alt="Garantia Raiz"
                 className="w-40 h-auto"
               />

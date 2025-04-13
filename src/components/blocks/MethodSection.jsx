@@ -48,7 +48,7 @@ const MethodSection = () => {
           className={`max-w-2xl mx-auto ${elementSpacing}`}
         >
           <img 
-            src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-b45aaa3b-052b-457d-945b-aa56ecdba6e8" 
+            src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-72186a68-e7e1-4ffc-b00d-4a09f3a0b96a" 
             alt="Método Vendas DaHorta - Imã de Clientes"
             className="w-full h-auto rounded-lg shadow-md"
           />
@@ -106,7 +106,7 @@ const MethodSection = () => {
           className={`max-w-2xl mx-auto ${elementSpacing}`}
         >
           <img 
-            src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-3287d0b0-5b37-4df6-bf28-282325ea2573" 
+            src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-a6bd2d74-7edc-4804-a519-3e9a49f53572" 
             alt="Método Vendas DaHorta - Ciclo de Colheita de Vendas"
             className="w-full h-auto rounded-lg shadow-md"
           />
@@ -164,7 +164,7 @@ const MethodSection = () => {
           className={`max-w-2xl mx-auto ${elementSpacing}`}
         >
           <img 
-            src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-fbbbddf0-98df-467d-844e-06cbcc147b81" 
+            src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-014feda7-ce71-4e59-9f5f-5d8553ee972b" 
             alt="Método Vendas DaHorta - Bola de Neve de Vendas"
             className="w-full h-auto rounded-lg shadow-md"
           />
