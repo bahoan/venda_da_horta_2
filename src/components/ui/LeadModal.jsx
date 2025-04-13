@@ -165,7 +165,7 @@ export default function LeadModal({ isOpen, onClose }) {
         });
         
         // URL base do Hotmart
-        const baseUrl = 'https://pay.hotmart.com/U80022774F?bid=1740851051324';
+        const baseUrl = 'https://pay.hotmart.com/U80022774F?off=234oqxqt&checkoutMode=6&bid=1744410037147';
         
         // Construir URL com parâmetros para Hotmart
         let redirectUrl = `${baseUrl}&name=${encodeURIComponent(formData.nome)}`;
@@ -241,7 +241,7 @@ export default function LeadModal({ isOpen, onClose }) {
             width={150}
           />
           <p className="text-center text-gray-700 text-sm mb-4">
-            Preencha o formulário e descubra como vender tudo da horta e da roça pelo WhatsApp
+          Preencha o formulário abaixo e comece agora a nova forma de vender hortaliças e alimentos da agricultura familiar
           </p>
         </div>
 
@@ -318,7 +318,7 @@ export default function LeadModal({ isOpen, onClose }) {
                   Processando...
                 </>
               ) : (
-                'Entrar no Vendas da Horta'
+                'Quero Lotar Meu WhatsApp de Clientes e Pedidos!'
               )}
             </button>
             <p className="text-center text-gray-600 text-xs mt-3 flex items-center justify-center">

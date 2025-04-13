@@ -281,8 +281,8 @@ const VideoSlider = () => {
           className={`text-center ${spacingClasses.elementSpacing}`}
         >
           <HighlightText>
-            Eu duvido você ver essas histórias e não<br />
-            querer o mesmo para <span className="text-brand-green">suas vendas e sua vida</span>
+          Essas histórias mostram o poder da nova forma de vender hortaliças – 
+          <span className="text-brand-green">difícil não querer o mesmo para sua vida.</span>
           </HighlightText>
         </motion.div>
       </div>
@@ -365,7 +365,7 @@ const VideoSlider = () => {
           >
             <ActionButtons 
               fullWidth 
-              topText="Eles poderiam nem estar mais trabalhando com horta se não tivessem clicado no botão abaixo"
+              topText="Eles só aumentaram suas vendas, lotaram suas entregas de pedidos e estão cheios de clientes todos os dias porque clicaram no botão abaixo."
             />
           </motion.div>
         </div>

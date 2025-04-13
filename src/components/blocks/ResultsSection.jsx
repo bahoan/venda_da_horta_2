@@ -171,10 +171,10 @@ const ResultsSection = () => {
           transition={{ duration: 0.5 }}
           className={`text-center ${elementSpacing}`}
         >
-          <HighlightText>
-            Todo dia eu recebo esse tipo de mensagem<br />
-            de <span className="text-brand-green">quem aplica o Método Vendas DaHorta</span>
-          </HighlightText>
+<HighlightText>
+  Todo dia eu recebo mensagens assim de quem já está usando <span className="text-brand-green">a Nova Forma de Vender Hortaliças e Alimentos da Agricultura Familiar</span>.
+</HighlightText>
+
         </motion.div>
 
         {/* Área do carrossel com margem infinita */}
@@ -243,7 +243,7 @@ const ResultsSection = () => {
               <ActionButtons 
                 fullWidth 
                 showOnlyMainButton={false}
-                topText="Tudo na vida, depois que aprende, fica fácil! Inclusive vender pela internet."
+                topText="Quem aplica a nova forma de vender já está colhendo mais pedidos. Clique no botão abaixo e comece também."
               />
             </motion.div>
           </div>

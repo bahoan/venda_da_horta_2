@@ -6,6 +6,7 @@ export { default as VideoPlayer } from './media/VideoPlayer'
 // Componentes de UI geral
 export { default as LeadModal } from './LeadModal'
 export { default as BenefitsList } from './BenefitsList'
+export { default as NumberedBenefitsList } from './NumberedBenefitsList'
 
 // Componentes de botões
 export { default as CTAButton } from './buttons/CTAButton'

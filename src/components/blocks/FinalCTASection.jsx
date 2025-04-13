@@ -24,8 +24,8 @@ export default function FinalCTASection() {
           </Heading2>
           
           <Paragraph className="max-w-3xl mx-auto">
-            Não perca mais tempo tentando vender seus produtos sem uma estratégia eficiente. 
-            O Método Vendas DaHorta já ajudou dezenas de pessoas a transformarem seus negócios.
+          Pare de sofrer com as formas antigas de vender hortaliças e alimentos da agricultura familiar.
+          O Método Vendas DaHorta já ajudou muitas pessoas a transformar suas vendas e lotar seus pedidos semana após semana.
           </Paragraph>
         </motion.div>
 

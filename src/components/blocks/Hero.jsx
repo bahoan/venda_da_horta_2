@@ -9,7 +9,8 @@ import {
   Heading3,
   Paragraph,
   Subtitle,
-  HighlightText
+  HighlightText,
+  NumberedBenefitsList
 } from '../ui';
 import { spacingClasses } from '../../styles/utils';
 
@@ -36,25 +37,25 @@ export default function Hero() {
           <div className={`max-w-4xl mx-auto text-center ${elementSpacing}`}>
             <div className={elementSpacing}>
               <HighlightText>
-                Qualquer pessoa com acesso à internet <span className="text-brand-green">pode vender hortaliças e produtos da roça</span> pelo celular
+                Existe uma nova forma de vender  <span className="text-brand-green">hortaliças e alimentos da agricultura familiar, </span> e quase ninguém sabe usar.
               </HighlightText>
             </div>
             
             <div className={elementSpacing}>
-              <Paragraph className="text-lg sm:text-xl">
-                Descubra como vender mais de R$2.000 por dia de entrega da horta, toda semana, pelo WhatsApp
-              </Paragraph>
+            <Subtitle className="text-xl sm:text-2xl">
+              Com ela, seu WhatsApp começa a encher de cliente todo dia, suas entregas ficam lotadas de pedido e suas vendas só aumentam, semana após semana.
+              </Subtitle>
             </div>
             
             <div className={elementSpacing}>
               <Subtitle className="text-xl sm:text-2xl">
-                Assista a aula de introdução gratuitamente e você vai aprender mais de 10 coisas:
+              Assista a primeira aula gratuitamente e descubra como transformar suas vendas de hortaliças com 3 estratégias práticas.
               </Subtitle>
             </div>
           </div>
 
           <div className={`max-w-4xl mx-auto ${elementSpacing}`}>
-            <BenefitsList />
+            <NumberedBenefitsList />
           </div>
 
           <div className={`video-section-container ${elementSpacing}`}>
@@ -63,7 +64,7 @@ export default function Hero() {
           
           <div className={`max-w-4xl mx-auto text-center ${elementSpacing}`}>
             <Paragraph>
-              Se você quer vender mais de R$2.000 por dia de entrega, toda semana, com constância e crescimento, clique no botão abaixo agora
+              Se você quer transformar seu negócio de hortaliças e aumentar suas vendas com estas estratégias, clique no botão abaixo agora
             </Paragraph>
           </div>
           

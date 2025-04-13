@@ -90,15 +90,15 @@ const MediaSection = () => {
               className={`space-y-4 ${elementSpacing}`}
             >
               <Paragraph>
-                João Mariano é pioneiro e especialista em venda de produtos da horta e da roça pela internet no Brasil. <span className="font-semibold">Criador do Método Vendas DaHorta</span>, ele já ajudou dezenas de pessoas a alcançarem resultados expressivos, mesmo começando do zero.
+              Um caipira, criador do Método Vendas DaHorta e sócio do AppDaHorta, João largou a faculdade de Agronomia mesmo depois de ganhar prêmio estadual de ciência e tecnologia — tudo pra vender alface e transformar a forma como agricultores vendem seus produtos.
               </Paragraph>
 
               <Paragraph>
-                João desenvolveu sua metodologia com base no seu próprio negócio de delivery de hortaliças, chamado Horta & DaRoça, aliando sua experiência como agricultor, estudos em agronomia e capacitações em marketing para criar um método acessível, prático e comprovado.
+              Só entre janeiro e março de 2025, ajudou usuários do AppDaHorta e alunos do Método Vendas DaHorta a faturarem mais de R$2 milhões, vendendo direto para o cliente final.
               </Paragraph>
 
               <Paragraph>
-                Ele acredita que, com as estratégias certas e o suporte adequado, qualquer pessoa pode transformar sua realidade, alcançar uma renda constante e proporcionar mais segurança e qualidade de vida para sua família, vendendo produtos pela internet de forma eficiente, profissional e com tranquilidade.
+              Com seu trabalho, tem fortalecido a renda de diversas famílias e levado alimentos da agricultura familiar para milhares de pessoas nas cidades.
               </Paragraph>
             </motion.div>
           </div>

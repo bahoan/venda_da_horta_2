@@ -48,10 +48,10 @@ export default function Gallery() {
           viewport={{ once: true }}
           className={`text-center ${elementSpacing}`}
         >
-          <HighlightText>
-            Quem aplica o método Vendas DaHorta,<br />
-            <span className="text-brand-green">lota o carro e a moto de entregas toda semana</span>
-          </HighlightText>
+<HighlightText>
+  Quem aplica o método Vendas DaHorta entende a nova forma de vendas de hortaliças e alimentos da agricultura familiar – <span className="text-brand-green">lota o carro e a moto de entregas toda semana</span>
+</HighlightText>
+
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

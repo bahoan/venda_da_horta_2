@@ -11,28 +11,23 @@ import { spacingClasses } from '../../styles/utils';
 const features = [
   {
     icon: Clock,
-    title: 'Acesso enquanto a assinatura estiver ativa',
-    description: 'Você terá acesso ao curso Vendas DaHorta enquanto a assinatura estiver ativa.'
+    title: 'Acesso por 100 dias ao AppDaHorta',
+    description: 'Tenha em mãos um sistema completo com cardápio digital, automação de atendimento, disparo em massa de mensagens e gestão de vendas – tudo em um só lugar, sem precisar começar gastando com ferramentas.'
   },
   {
     icon: Smartphone,
-    title: '365 dias de acesso ao AppDaHorta',
-    description: 'Durante 365 dias você poderá usar o plano semente do aplicativo exclusivo para criar cardápio digitais, automatizar o envio de listas, organizar pedidos, gerar relatórios de vendas e emitir notinhas.'
+    title: 'Suporte por Vídeo Chamada',
+    description: 'Tire todas as suas dúvidas sobre vendas, atendimento, preço de produtos, entregas e muito mais – direto com quem já está na prática.'
   },
   {
     icon: Video,
-    title: 'Suporte ao vivo por videochamada',
-    description: 'Tire todas as suas dúvidas sobre vendas, anúncios, cardápio, atendimento ao cliente, ofertas, automação de produtos e muito mais.'
+    title: 'Comunidade de Alunos',
+    description: 'Faça parte de uma comunidade exclusiva no WhatsApp para trocar experiências com quem está usando essa nova forma de vender hortaliças e alimentos da agricultura familiar.'
   },
   {
     icon: Shield,
-    title: 'Garantia de 30 dias',
-    description: 'Experiente sem risco. Se não gostar ou não ver valor, você pode solicitar reembolso em até 30 dias e receber todo o seu dinheiro de volta.'
-  },
-  {
-    icon: Users,
-    title: 'Acesso à Comunidade de Vendas Exclusiva',
-    description: 'Troque experiências, dicas, ofertas e produtos com outros alunos(as) que estão na prática vendendo hortaliças e produtos da roça pela internet'
+    title: 'Garantia de 30 Dias',
+    description: 'Teste o método por 30 dias e, se não ficar satisfeito, pode pedir todo o seu dinheiro de volta. Sem enrolação.'
   }
 ];
 
@@ -40,8 +35,8 @@ export default function CallToAction() {
   const { elementSpacing } = spacingClasses;
   
   return (
-    <section className="min-h-screen flex items-center bg-gray-50 mobile-padding">
-      <div className="max-w-4xl mx-auto py-4">
+    <section className="md:py-16 py-24 flex items-center bg-gray-50 mobile-padding">
+      <div className="max-w-4xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -49,6 +44,9 @@ export default function CallToAction() {
           viewport={{ once: true }}
           className="text-center max-w-4xl mx-auto"
         >
+          <Paragraph className="text-xl font-medium text-brand-green mb-8">
+            Além do curso, você vai receber muito mais para aumentar suas vendas e resultados:
+          </Paragraph>
           <div className="grid gap-8">
             {features.map((feature, index) => (
               <motion.div

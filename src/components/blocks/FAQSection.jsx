@@ -9,35 +9,35 @@ const FAQSection = () => {
   const faqs = [
     {
       question: "Funciona para quem nunca vendeu hortaliças pela internet?",
-      answer: "Com certeza! Se você nunca vendeu hortaliças online, vai começar do jeito certo, com um método já validado. Você vai evitar os erros que muita gente comete e aprender direto o que funciona de verdade. É só seguir o passo a passo e começar a atrair clientes e vender sem complicação!"
+      answer: "Sim! Mesmo que você nunca tenha vendido hortaliças online, o método Vendas DaHorta é feito para começar do jeito certo, seguindo um passo a passo já validado. Você vai evitar os erros comuns e aprender direto o que realmente funciona para atrair clientes e vender com facilidade."
     },
     {
       question: "Funciona pra quem não tem horta?",
-      answer: "Você não precisa ter uma horta pra começar. O método te ensina a vender primeiro e, depois, você pode pensar na produção, fazer parcerias ou revender produtos da roça. É tudo pensado pra ser simples e começar a gerar resultados rápido, mesmo sem plantar nada."
+      answer: "Sim! Você não precisa ter uma horta para começar. O método Vendas DaHorta ensina a vender primeiro e, depois, produzir, fazer parcerias com agricultores locais ou revender produtos da roça. Tudo pensado para ser simples e gerar resultados rápidos, mesmo sem plantar nada."
     },
     {
       question: "Funciona pra quem nunca usou o WhatsApp pra vender?",
-      answer: "Funciona, sim. O método foi criado pra quem está começando do zero, sem experiência. Você vai aprender tudo passo a passo, desde configurar o WhatsApp até atrair clientes e fazer suas primeiras vendas. É só seguir o plano e aplicar."
+      answer: "Sim! O método foi criado para quem está começando do zero, mesmo sem experiência. Você vai aprender passo a passo, desde configurar o WhatsApp até atrair clientes e fazer suas primeiras vendas. É só seguir o plano e colocar em prática."
     },
     {
       question: "Funciona pra quem não entende de anúncios?",
-      answer: "Além de te ensinar a fazer anúncios do zero, o método ainda te dá modelos prontos de anúncios que são verdadeiros ímãs de clientes da horta. É só copiar e usar para lotar seu WhatsApp de pessoas pedindo para conhecer e comprar seus produtos."
+      answer: "Sim! O método te ensina a fazer anúncios do zero, de forma simples e prática. Além disso, você vai receber modelos prontos de anúncios que já funcionam como verdadeiros ímãs de clientes da horta. Basta copiar e usar para lotar seu WhatsApp de pessoas interessadas em comprar."
     },
     {
       question: "Funciona pra quem não entende nada de vendas?",
-      answer: "Funciona, sim! O método foi pensado também pra quem nunca vendeu antes. Ele ensina o passo a passo pra atrair clientes e vender de forma simples pelo WhatsApp, mesmo sem experiência. Você vai aprender tanto a finalizar vendas automaticamente quanto a atender seus clientes manualmente, sem complicação."
+      answer: "Sim! O método foi criado justamente para quem nunca vendeu antes. Você vai aprender passo a passo como atrair clientes e vender pelo WhatsApp de forma simples e prática. Seja automatizando as vendas ou atendendo manualmente, tudo é ensinado de maneira fácil e direta."
     },
     {
       question: "Funciona pra quem já vende?",
-      answer: "Não só funciona como vai alavancar suas vendas de uma semana para outra. Você, de cara, já vai conseguir aumentar suas vendas para os clientes que já compram de você e, em seguida, atrair novos contatos todos os dias. Isso ativa o efeito bola de neve nas suas vendas, fazendo elas crescerem semana após semana."
+      answer: "Sim! O método não só funciona como potencializa suas vendas de forma rápida. Você vai aumentar as compras dos clientes que já têm e ainda atrair novos contatos todos os dias. Isso cria o efeito bola de neve, fazendo suas vendas crescerem semana após semana."
     },
     {
       question: "Funciona em épocas de baixa procura?",
-      answer: "Sim! O método te ensina estratégias para atrair novos clientes e incentivar quem já comprou a voltar a comprar, mesmo em épocas de baixa demanda. Você vai aprender a criar ofertas caipira e trabalhar a recompra de forma inteligente, mantendo as vendas constantes o ano todo."
+      answer: "Sim! O método ensina estratégias práticas para atrair novos clientes e incentivar os antigos a comprar novamente, mesmo quando a demanda está menor. Você vai aprender a criar ofertas caipiras que mantêm as vendas constantes, garantindo faturamento o ano todo."
     },
     {
       question: "E se eu aplicar o método e não conseguir resultados?",
-      answer: "O método é validado e já trouxe resultados reais para muitas pessoas em menos de 1 semana. Se você seguir tudo direitinho, vai conseguir também. Mas, se por qualquer motivo, não ficar satisfeito, você tem até 30 dias para pedir seu dinheiro de volta, e a gente devolve cada centavo que você investiu. Ou seja, o risco é zero para você!"
+      answer: "O método já foi testado e comprovado por muitas pessoas, gerando resultados reais em menos de uma semana. Se você seguir o passo a passo direitinho, vai ver as vendas crescerem. Mas, se por qualquer motivo não ficar satisfeito, você tem 30 dias para pedir seu dinheiro de volta – sem risco e sem enrolação."
     }
   ];
 

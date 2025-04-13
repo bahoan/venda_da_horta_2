@@ -6,33 +6,36 @@ const MethodSection = () => {
   const { elementSpacing, sectionSpacing } = spacingClasses;
   
   return (
-    <section className="w-full py-8 bg-white mobile-padding">
-      <div className="max-w-4xl mx-auto">
+    <section className="w-full py-6 bg-white mobile-padding">
+      <div className="max-w-3xl mx-auto">
         {/* Method Description */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center"
+          className="text-center mb-8"
         >
           <div className={elementSpacing}>
-            <HighlightText>
-              Um plano <span className="text-brand-green">detalhado</span> para você <span className="text-brand-green">começar a vender</span> hortaliças e produtos
-              da roça pela internet <span className="text-brand-green">e aumentar suas vendas semana após semana</span>
-            </HighlightText>
+          <HighlightText>
+  O Método Vendas DaHorta traz <span className="text-brand-green">a nova forma</span> de vender hortaliças e alimentos da <span className="text-brand-green">agricultura familiar</span>.
+</HighlightText>
+
           </div>
           
           <div className={elementSpacing}>
-            <Paragraph className="text-xl">
-              O Método Vendas DaHorta é dividido em 2 etapas:
-            </Paragraph>
+          <Paragraph className="text-xl">
+  Ele é dividido em 3 etapas práticas, que você aplica para atrair mais clientes, <strong>multiplicar suas vendas</strong> e crescer toda semana.
+</Paragraph>
+
           </div>
           
           <div className={elementSpacing}>
-            <Heading3>
-              Etapa 1: Imã de Clientes da Horta
-            </Heading3>
+            <div className="inline-block">
+              <Heading3 className="bg-gradient-to-r from-green-50 to-white px-4 py-2 rounded-lg border-l-4 border-brand-green shadow-sm">
+                ETAPA 1: Ímã de Clientes da Horta
+              </Heading3>
+            </div>
           </div>
         </motion.div>
 
@@ -42,12 +45,12 @@ const MethodSection = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className={`max-w-4xl mx-auto ${elementSpacing}`}
+          className={`max-w-2xl mx-auto ${elementSpacing}`}
         >
           <img 
-            src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-896a65bb-4b6f-4edf-85e5-035708416496" 
+            src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-b45aaa3b-052b-457d-945b-aa56ecdba6e8" 
             alt="Método Vendas DaHorta - Imã de Clientes"
-            className="w-full h-auto rounded-lg"
+            className="w-full h-auto rounded-lg shadow-md"
           />
         </motion.div>
 
@@ -57,15 +60,25 @@ const MethodSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className={`max-w-3xl mx-auto text-center ${sectionSpacing}`}
+          className={`max-w-2xl mx-auto text-center ${sectionSpacing}`}
         >
           <div className={elementSpacing}>
             <Paragraph>
-              Aqui você aprender a atrair novos clientes e potenciais clientes para seu WhatsApp todos os dias. 
-              Nessa etapa você já faz as primeiras vendas e aumenta sua base de contatos no WhatsApp.
+            Você aprende a atrair novos clientes da sua cidade todos os dias, que chegam no seu WhatsApp pedindo para comprar.
             </Paragraph>
           </div>
         </motion.div>
+        
+        {/* Divider 1 */}
+        <div className="flex items-center justify-center my-10">
+          <div className="h-0.5 bg-gray-200 w-16 rounded-full"></div>
+          <div className="mx-4 w-8 h-8 rounded-full bg-brand-green flex items-center justify-center shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+          <div className="h-0.5 bg-gray-200 w-16 rounded-full"></div>
+        </div>
 
         {/* Method 2 Title */}
         <motion.div
@@ -76,9 +89,11 @@ const MethodSection = () => {
           className="text-center"
         >
           <div className={elementSpacing}>
-            <Heading3>
-              Etapa 2: Ciclo de Colheita de Vendas
-            </Heading3>
+            <div className="inline-block">
+              <Heading3 className="bg-gradient-to-r from-green-50 to-white px-4 py-2 rounded-lg border-l-4 border-brand-green shadow-sm">
+                ETAPA 2: Ofertas Caipiras
+              </Heading3>
+            </div>
           </div>
         </motion.div>
 
@@ -88,12 +103,12 @@ const MethodSection = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className={`max-w-4xl mx-auto ${elementSpacing}`}
+          className={`max-w-2xl mx-auto ${elementSpacing}`}
         >
           <img 
-            src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-2cb43d53-e14a-46a4-89d9-65debcd3fc91" 
+            src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-3287d0b0-5b37-4df6-bf28-282325ea2573" 
             alt="Método Vendas DaHorta - Ciclo de Colheita de Vendas"
-            className="w-full h-auto rounded-lg"
+            className="w-full h-auto rounded-lg shadow-md"
           />
         </motion.div>
 
@@ -103,27 +118,91 @@ const MethodSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="max-w-3xl mx-auto text-center"
+          className="max-w-2xl mx-auto text-center"
+        >
+<div className={elementSpacing}>
+  <Paragraph>
+  Você monta cardápios digitais com seus produtos e dispara ofertas em massa - aumentando as vendas sem incomodar ninguém.
+  </Paragraph>
+</div>
+        </motion.div>
+        
+        {/* Divider 2 */}
+        <div className="flex items-center justify-center my-10">
+          <div className="h-0.5 bg-gray-200 w-16 rounded-full"></div>
+          <div className="mx-4 w-8 h-8 rounded-full bg-brand-green flex items-center justify-center shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </div>
+          <div className="h-0.5 bg-gray-200 w-16 rounded-full"></div>
+        </div>
+        
+        {/* Method 3 Title */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className={`text-center ${sectionSpacing}`}
+        >
+          <div className={elementSpacing}>
+            <div className="inline-block">
+              <Heading3 className="bg-gradient-to-r from-green-50 to-white px-4 py-2 rounded-lg border-l-4 border-brand-green shadow-sm">
+                ETAPA 3: Bola de Neve de Vendas
+              </Heading3>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Method 3 Image */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className={`max-w-2xl mx-auto ${elementSpacing}`}
+        >
+          <img 
+            src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-fbbbddf0-98df-467d-844e-06cbcc147b81" 
+            alt="Método Vendas DaHorta - Bola de Neve de Vendas"
+            className="w-full h-auto rounded-lg shadow-md"
+          />
+        </motion.div>
+
+        {/* Method 3 Description */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="max-w-2xl mx-auto text-center"
         >
           <div className={elementSpacing}>
             <Paragraph>
-              Nessa etapa você automatiza seu atendimento, cria uma rotina de produção e envio de ofertas 
-              e cardápio para sua base de contatos.
+            Suas vendas crescem de forma contínua, até lotar seus dias de entrega. É o efeito bola de neve: quanto mais você aplica, mais vende.
             </Paragraph>
           </div>
-          
-          <div className={elementSpacing}>
-            <Paragraph>
-              Dessa forma você tem novos clientes entrando em contato todos os dias e novas vendas acontecendo 
-              com os contatos que entraram no seu WhatsApp mas não compraram na hora, além de ter a recompra 
-              de quem fidelizar.
-            </Paragraph>
-          </div>
-          
-          <div className={elementSpacing}>
-            <Paragraph>
-              Isso faz suas vendas aumentarem a cada semana, criando um efeito de bola de neve de vendas.
-            </Paragraph>
+
+        </motion.div>
+        
+        {/* Final Note */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-16 mb-6 max-w-2xl mx-auto"
+        >
+          <div className="bg-gray-50 border-l-4 border-brand-green rounded-r-lg p-5 shadow-sm">
+            <div className="flex items-start">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-brand-green flex-shrink-0 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <Paragraph className="text-gray-700 font-medium italic">
+                É a partir daqui que você decide se aumenta o número de entregas por dia ou se abre mais dias de entregas.
+              </Paragraph>
+            </div>
           </div>
         </motion.div>
       </div>
