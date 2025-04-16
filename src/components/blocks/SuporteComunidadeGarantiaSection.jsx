@@ -51,8 +51,8 @@ const SuporteComunidadeGarantiaSection = () => {
             </motion.div>
           </div>
 
-          {/* Comunidade Vendas DaHorta */}
-          <div className="grid md:grid-cols-2 gap-10 items-center">
+          {/* Comunidade Vendas DaHorta - Temporariamente desativado */}
+          {/* <div className="grid md:grid-cols-2 gap-10 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -89,7 +89,7 @@ const SuporteComunidadeGarantiaSection = () => {
                 Troque experiências, compartilhe resultados e tire dúvidas direto com quem está na prática. Um espaço para se apoiar, aprender e crescer junto!
               </Paragraph>
             </motion.div>
-          </div>
+          </div> */}
 
           {/* Garantia Raiz */}
           <motion.div

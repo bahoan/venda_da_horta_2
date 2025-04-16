@@ -43,24 +43,30 @@ const ImageCard = ({ item, loading }) => {
   
   if (loading) {
     return (
-      <div className="relative p-1" style={{ width: '200px', height: '425px' }}>
+      <div className="relative p-1" style={{ width: '200px', height: '425px', display: 'block' }}>
         <div className="rounded-[2rem] overflow-hidden shadow-md bg-gray-200 animate-pulse w-full h-full">
-          <div className="w-full h-full" style={{ aspectRatio: '9/19', maxHeight: '450px' }}></div>
+          <div className="w-full h-full" style={{ aspectRatio: '9/19', height: '425px' }}></div>
         </div>
       </div>
     );
   }
   
   return (
-    <div className="relative p-1" style={{ width: '200px', height: '425px' }}>
-      <div className="rounded-[2rem] overflow-hidden shadow-md">
+    <div className="relative p-1" style={{ width: '200px', height: '425px', display: 'block' }}>
+      <div className="rounded-[2rem] overflow-hidden shadow-md" style={{ width: '200px', height: '425px' }}>
         <img
           src={imgError ? fallbackImages[0].url : item.url}
           alt={item.nome || "Resultado do Vendas DaHorta"}
           className="w-full h-full"
           width="200"
           height="425"
-          style={{ aspectRatio: '9/19', maxHeight: '450px', objectFit: 'cover' }}
+          style={{ 
+            aspectRatio: '9/19', 
+            width: '200px', 
+            height: '425px', 
+            objectFit: 'cover',
+            display: 'block'
+          }}
           loading="lazy"
           onError={(e) => {
             console.error(`Erro ao carregar imagem: ${item.url}`);
@@ -191,7 +197,7 @@ const ResultsSection = () => {
 
         {/* Área do carrossel com margem infinita */}
         <div className="w-full overflow-visible mt-8 relative">
-          <div className="carousel-container -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12" style={{ minHeight: '450px' }}>
+          <div className="carousel-container -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12" style={{ minHeight: '450px', height: '450px', position: 'relative' }}>
             <Swiper
               ref={swiperRef}
               modules={[Navigation, Pagination]}
@@ -220,11 +226,11 @@ const ResultsSection = () => {
               }}
               className="!pb-12 !px-0 group relative"
             >
-              {/* Botões de navegação customizados - sempre visíveis */}
-              <div className="swiper-button-prev !w-10 !h-10 !bg-green-600 hover:!bg-green-700 !rounded-full !shadow-lg !opacity-90 !flex !items-center !justify-center !left-2 md:!left-4 !top-[40%] z-10 !absolute">
+              {/* Botões de navegação customizados com posição fixa para evitar layout shift */}
+              <div className="swiper-button-prev !w-10 !h-10 !bg-green-600 hover:!bg-green-700 !rounded-full !shadow-lg !opacity-90 !flex !items-center !justify-center !left-2 md:!left-4 !top-[40%] z-10 !absolute" style={{ position: 'absolute', transform: 'translateY(-50%)' }}>
                 <ChevronLeft className="w-5 h-5 text-white" />
               </div>
-              <div className="swiper-button-next !w-10 !h-10 !bg-green-600 hover:!bg-green-700 !rounded-full !shadow-lg !opacity-90 !flex !items-center !justify-center !right-2 md:!right-4 !top-[40%] z-10 !absolute">
+              <div className="swiper-button-next !w-10 !h-10 !bg-green-600 hover:!bg-green-700 !rounded-full !shadow-lg !opacity-90 !flex !items-center !justify-center !right-2 md:!right-4 !top-[40%] z-10 !absolute" style={{ position: 'absolute', transform: 'translateY(-50%)' }}>
                 <ChevronRight className="w-5 h-5 text-white" />
               </div>
 
@@ -241,9 +247,9 @@ const ResultsSection = () => {
                 // Carrossel real após o carregamento
                 carouselItems.map((item) => (
                   <SwiperSlide key={item.id} className="flex justify-center">
-                    <div className="max-w-[200px]" style={{ width: '200px', height: '425px' }}>
-                      <ImageCard item={item} loading={false} />
-                    </div>
+                    <div className="max-w-[200px]" style={{ width: '200px', height: '425px', display: 'block', overflow: 'hidden' }}>
+                    <ImageCard item={item} loading={false} />
+                  </div>
                   </SwiperSlide>
                 ))
               )}

@@ -42,17 +42,25 @@ export default function Hero() {
           transition={{ duration: isMobile ? 0.5 : 0.8, ease: 'easeOut' }}
           className="text-center"
         >
-          <OptimizedImage 
-            src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-24a3e9e2-a245-4dfb-a465-befd42dac36a" 
-            alt="Logo AppDaHorta"
-            className={`mx-auto ${elementSpacing} max-w-[150px]`}
-            width={isMobile ? 120 : 150}
-            height={isMobile ? 48 : 60}
-            quality={isMobile ? 80 : 90}
-            priority={true}
-            loading="eager"
-            style={{ aspectRatio: 'auto', display: 'block' }}
-          />
+          <div style={{ width: isMobile ? '120px' : '150px', height: isMobile ? '48px' : '60px', margin: '0 auto', overflow: 'hidden', position: 'relative' }} className={elementSpacing}>
+            <OptimizedImage 
+              src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-24a3e9e2-a245-4dfb-a465-befd42dac36a" 
+              alt="Logo AppDaHorta"
+              className="mx-auto"
+              width={isMobile ? 120 : 150}
+              height={isMobile ? 48 : 60}
+              quality={isMobile ? 80 : 90}
+              priority={true}
+              loading="eager"
+              style={{ 
+                width: '100%', 
+                height: '100%', 
+                objectFit: 'contain', 
+                display: 'block',
+                aspectRatio: isMobile ? '120/48' : '150/60'
+              }}
+            />
+          </div>
           
           <div className={`max-w-4xl mx-auto text-center ${elementSpacing}`}>
             <div className={elementSpacing}>

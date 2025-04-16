@@ -165,7 +165,7 @@ export default function LeadModal({ isOpen, onClose }) {
         });
         
         // URL base do Hotmart
-        const baseUrl = 'https://pay.hotmart.com/U80022774F?off=234oqxqt&checkoutMode=6&bid=1744410037147';
+        const baseUrl = 'https://pay.hotmart.com/U80022774F?off=ld7q0idw&bid=1744746925833';
         
         // Construir URL com parâmetros para Hotmart
         let redirectUrl = `${baseUrl}&name=${encodeURIComponent(formData.nome)}`;
