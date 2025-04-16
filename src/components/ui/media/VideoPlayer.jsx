@@ -63,7 +63,7 @@ export default function VideoPlayer() {
       <div className="relative pb-[56.25%] h-0">
         <video
           ref={videoRef}
-          src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-fdddf04f-f93d-4591-98cc-9d74ea45dfc5"
+          src="https://cynnujihthpzbfxlfayy.supabase.co/storage/v1/object/public/storage/site_appdahorta/site-a13c38f4-d1ea-47f4-9dd6-a5ac90f99efa"
           className="absolute top-0 left-0 w-full h-full"
           preload="metadata"
           controls

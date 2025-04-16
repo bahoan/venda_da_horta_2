@@ -38,16 +38,28 @@ const fetchController = {
 };
 
 // Componente para o card de imagem - movido para fora do componente principal
-const ImageCard = ({ item }) => {
+const ImageCard = ({ item, loading }) => {
   const [imgError, setImgError] = useState(false);
   
+  if (loading) {
+    return (
+      <div className="relative p-1" style={{ width: '200px', height: '425px' }}>
+        <div className="rounded-[2rem] overflow-hidden shadow-md bg-gray-200 animate-pulse w-full h-full">
+          <div className="w-full h-full" style={{ aspectRatio: '9/19', maxHeight: '450px' }}></div>
+        </div>
+      </div>
+    );
+  }
+  
   return (
-    <div className="relative p-1">
+    <div className="relative p-1" style={{ width: '200px', height: '425px' }}>
       <div className="rounded-[2rem] overflow-hidden shadow-md">
         <img
           src={imgError ? fallbackImages[0].url : item.url}
           alt={item.nome || "Resultado do Vendas DaHorta"}
-          className="w-full"
+          className="w-full h-full"
+          width="200"
+          height="425"
           style={{ aspectRatio: '9/19', maxHeight: '450px', objectFit: 'cover' }}
           loading="lazy"
           onError={(e) => {
@@ -179,7 +191,7 @@ const ResultsSection = () => {
 
         {/* Área do carrossel com margem infinita */}
         <div className="w-full overflow-visible mt-8 relative">
-          <div className="carousel-container -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12">
+          <div className="carousel-container -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-12" style={{ minHeight: '450px' }}>
             <Swiper
               ref={swiperRef}
               modules={[Navigation, Pagination]}
@@ -216,13 +228,25 @@ const ResultsSection = () => {
                 <ChevronRight className="w-5 h-5 text-white" />
               </div>
 
-              {carouselItems.map((item) => (
-                <SwiperSlide key={item.id} className="flex justify-center">
-                  <div className="max-w-[200px]">
-                    <ImageCard item={item} />
-                  </div>
-                </SwiperSlide>
-              ))}
+              {loading ? (
+                // Skeleton loader para o carrossel durante o carregamento
+                Array.from({ length: 3 }).map((_, index) => (
+                  <SwiperSlide key={`skeleton-${index}`} className="flex justify-center">
+                    <div className="max-w-[200px]">
+                      <ImageCard loading={true} />
+                    </div>
+                  </SwiperSlide>
+                ))
+              ) : (
+                // Carrossel real após o carregamento
+                carouselItems.map((item) => (
+                  <SwiperSlide key={item.id} className="flex justify-center">
+                    <div className="max-w-[200px]" style={{ width: '200px', height: '425px' }}>
+                      <ImageCard item={item} loading={false} />
+                    </div>
+                  </SwiperSlide>
+                ))
+              )}
             </Swiper>
           </div>
         </div>

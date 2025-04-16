@@ -1,12 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
   <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NNCDWL44');</script>
+    <!-- Google Tag Manager - Otimizado para não bloquear renderização -->
+    <script>
+    // Carregamento diferido do GTM para melhorar o LCP
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    
+    // Função para carregar o GTM de forma não bloqueante
+    function loadGTM() {
+      const script = document.createElement('script');
+      script.async = true;
+      script.defer = true; // Adicionado defer para melhorar performance
+      script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-NNCDWL44';
+      document.head.appendChild(script);
+    }
+    
+    // Carrega o GTM após o evento load ou após 2 segundos, o que vier primeiro
+    if (window.requestIdleCallback) {
+      requestIdleCallback(loadGTM);
+    } else {
+      // Fallback para navegadores que não suportam requestIdleCallback
+      setTimeout(loadGTM, 2000);
+    }
+    </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" id="favicon" href="/vite.svg" />
@@ -59,6 +76,10 @@
     <!-- Preload do JavaScript principal -->
     <link rel="modulepreload" href="/src/main.js">
     
+    <!-- Preconnect para domínios de terceiros para melhorar performance -->
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://connect.facebook.net">
+    
     <!-- Script para definir o favicon dinamicamente -->
     <script>
       // Atualiza o favicon com base na variável de ambiente
@@ -67,6 +88,21 @@
         if (faviconUrl) {
           document.getElementById('favicon').href = faviconUrl;
         }
+        
+        // Carregamento diferido do Facebook Pixel
+        setTimeout(() => {
+          // Carrega o Facebook Pixel de forma não bloqueante
+          !function(f,b,e,v,n,t,s)
+          {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+          n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+          if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+          n.queue=[];t=b.createElement(e);t.async=!0;
+          t.src=v;s=b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t,s)}(window, document,'script',
+          'https://connect.facebook.net/en_US/fbevents.js');
+          fbq('init', '1234567890'); // Substitua pelo seu ID do Pixel
+          fbq('track', 'PageView');
+        }, 3000); // Carrega após 3 segundos para priorizar o conteúdo principal
       });
     </script>
   </head>
