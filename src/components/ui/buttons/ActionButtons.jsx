@@ -19,7 +19,7 @@ export default function ActionButtons({
   ...props
 }) {
   const { openModal } = useModal();
-  const whatsappUrl = "https://wa.me/5544998408707?text=Ol%C3%A1%2C%20tenho%20d%C3%BAvidas%20sobre%20o%20M%C3%A9todo%20Vendas%20DaHorta";
+  const whatsappUrl = "https://wa.me/5544998408707?text=Oi!%20Tenho%20d%C3%BAvidas%20sobre%20a%20nova%20forma%20de%20vendas%20de%20hortali%C3%A7as";
   
   const handleEnterClick = () => {
     // Rastreia o clique no botão principal
